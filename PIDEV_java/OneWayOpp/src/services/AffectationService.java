@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import utils.MyDB;
 
 /**
@@ -53,6 +55,7 @@ public class AffectationService implements  IService<AffectationOpColis>{
         ps.executeUpdate();
          System.out.println("modification affectation  avec succes");
             }catch(SQLException ex){
+               
         
                 System.out.println(ex.getMessage());
                  }

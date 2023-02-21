@@ -23,7 +23,7 @@ public class Test {
       //  MyDB db = new MyDB();
       //*******************************table Opportuniteé******************************
         try {
-        Opportunite op1 = new Opportunite("10/10/2023", "fraance",6f, "gabes" ,10f, "cccccccc");
+        Opportunite op1 = new Opportunite(25,"10/10/2023", "fraance",6f, "gabes" ,10f, "mmmmmmmmmmmmm");
         Opportunite op2 = new Opportunite("10/10/2023", "cccc",6f, "ccccccc" ,10f, "vvvvvvv");
         
         
@@ -31,7 +31,7 @@ public class Test {
         
         // os.supprimer(16);
             //os.supprimer(op1);
-               // os.modifier(op1);
+                os.modifier(op1);
             //   os.ajouter(op2);
             
             System.out.println(os.recuperer(op1));
@@ -40,14 +40,14 @@ public class Test {
             System.out.println("*************************************************************");
         AffectationService as = new AffectationService();
             
-            AffectationOpColis aff1 = new AffectationOpColis(18,24,1);
+            AffectationOpColis aff1 = new AffectationOpColis(25,26, 2);
             
             
-          //  as.ajouter(aff1);
+           // as.ajouter(aff1);
             
-           //as.modifier(aff1);
-          //as.supprimer(aff1);
-            System.out.println(as.recuperer(aff1));;
+          // as.modifier(aff1);
+         // as.supprimer(aff1);
+           System.out.println(as.recuperer(aff1));;
             
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());       

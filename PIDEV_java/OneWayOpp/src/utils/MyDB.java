@@ -23,7 +23,7 @@ public class MyDB {
     
     private static MyDB instance;   //2- Declare une variable static de type class
 
-    public MyDB() {    // 1-Singleton Constructeur Private
+    private MyDB() {    // 1-Singleton Constructeur Private
         try {
             cnx = DriverManager.getConnection(url, username, password);
             System.out.println("c'est bon Connexion établie");
