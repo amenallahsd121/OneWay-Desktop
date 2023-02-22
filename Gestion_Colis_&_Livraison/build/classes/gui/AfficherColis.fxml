@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="638.0" prefWidth="1092.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherColisController">
+   <children>
+      <TableView fx:id="colisTV" layoutX="55.0" layoutY="141.0" prefHeight="435.0" prefWidth="1006.0" style="-fx-background-color: #ffffff;">
+        <columns>
+          <TableColumn fx:id="idTV" prefWidth="100.0" style="-fx-alignment: CENTER;" text="ID_Colis" />
+          <TableColumn fx:id="poidsTV" prefWidth="161.0" style="-fx-alignment: CENTER;" text="Poids" />
+            <TableColumn fx:id="typeTV" prefWidth="142.0" style="-fx-alignment: CENTER;" text="Type" />
+            <TableColumn fx:id="lieudTV" prefWidth="178.0" style="-fx-alignment: CENTER;" text="Lieu Départ" />
+            <TableColumn fx:id="lieuaTV" prefWidth="179.0" style="-fx-alignment: CENTER;" text="Lieu Arrivé" />
+            <TableColumn fx:id="Delete" minWidth="0.0" prefWidth="127.0" style="-fx-alignment: CENTER;" text="Supprimer" />
+            <TableColumn fx:id="Modifier" minWidth="0.0" prefWidth="118.0" style="-fx-alignment: CENTER;" text="Modifier" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="377.0" layoutY="35.0" prefHeight="17.0" prefWidth="321.0" text="Liste Des Colis" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="welcomeLb" layoutX="91.0" layoutY="66.0" prefHeight="17.0" prefWidth="146.0" />
+      <Button fx:id="retourbutton" layoutX="940.0" layoutY="591.0" mnemonicParsing="false" onAction="#retour" prefHeight="17.0" prefWidth="121.0" text="Retour" />
+   </children>
+</AnchorPane>

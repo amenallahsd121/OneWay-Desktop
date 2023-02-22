@@ -19,7 +19,7 @@ import services.LivraisonService;
 public class Test {
     public static void main(String[] args) {
         
-         try {
+      //  try {
              
              
              
@@ -33,7 +33,7 @@ public class Test {
             //CS.ajouter(c1);
             //CS.modifier(c1);
             //CS.supprimer(c1);
-            System.out.println(CS.recuperer(c1));
+           // System.out.println(CS.recuperer(c1));
             
             
             
@@ -47,7 +47,7 @@ public class Test {
            //LS.ajouter(L1);
            //LS.modifier(L1);
            //LS.supprimer(L1);
-             System.out.println(LS.recuperer(L1));
+             //System.out.println(LS.recuperer(L1));
 
              
              
@@ -60,7 +60,7 @@ public class Test {
            //LIS.ajouter(Liv1);
            //LIS.modifier(Liv1);
            //LIS.supprimer(Liv1);
-             System.out.println(LIS.recuperer(Liv1));
+            // System.out.println(LIS.recuperer(Liv1));
             
             
             
@@ -71,11 +71,11 @@ public class Test {
             
             
             
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+       // } catch (SQLException ex) {
+         //   System.out.println(ex.getMessage());
         }
          
          
     }
     
-}
+//}

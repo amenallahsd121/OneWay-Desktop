@@ -38,8 +38,11 @@ public class LivreurService implements IServices<Livreur>{
     }
 
     @Override
-    public void modifier(Livreur t) throws SQLException {
+    public boolean modifier(Livreur t) throws SQLException {
         
+        
+         boolean ok = false;
+        try {
          String req = " UPDATE livreur SET cin_livreur = ? , nom = ? , prenom= ? , vehicule = ?  where cin_livreur = ?    ";
          PreparedStatement ps = cnx.prepareStatement(req);
          ps.setString(1, t.getCin_livreur());
@@ -48,21 +51,35 @@ public class LivreurService implements IServices<Livreur>{
          ps.setString(4, t.getVehicule());
          ps.setString(5, t.getCin_livreur());
          ps.executeUpdate();
+         ok = true;
+        } catch (SQLException ex) {
+            System.out.println("error in delete " + ex);
+        }
+        return ok;  
+
+    }
+
+        
+    
+
+    @Override
+    public boolean supprimer(Livreur t) throws SQLException {
+        
+             boolean ok = false;
+        try {
+            PreparedStatement req = cnx.prepareStatement("delete from livreur where cin_livreur = ? ");
+            req.setString(1, t.getCin_livreur());
+            req.executeUpdate();
+            ok = true;
+        } catch (SQLException ex) {
+            System.out.println("error in delete " + ex);
+        }
+        return ok;  
         
     }
 
     @Override
-    public void supprimer(Livreur t) throws SQLException {
-        
-             String req = " DELETE FROM livreur where cin_livreur = ? " ;
-             PreparedStatement ps = cnx.prepareStatement(req);
-             ps.setString(1, t.getCin_livreur());
-             ps.executeUpdate();
-        
-    }
-
-    @Override
-    public List<Livreur> recuperer(Livreur t) throws SQLException {
+    public List<Livreur> recuperer() throws SQLException {
         
          List<Livreur> Livreur = new ArrayList<>();
         String s = "select * from livreur ";

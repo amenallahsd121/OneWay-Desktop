@@ -44,8 +44,10 @@ public class ColisService implements IServices<Colis> {
     
     
     @Override
-    public void modifier(Colis t) throws SQLException {
-        
+    public boolean modifier(Colis t) throws SQLException {
+            
+        boolean ok = false;
+        try {
             String req = " UPDATE colis SET poids = ? , type_colis = ? , lieu_depart = ? , lieu_arrive = ?    where id_colis = ?    ";
             PreparedStatement ps = cnx.prepareStatement(req);
         ps.setDouble(1, t.getPoids());
@@ -54,6 +56,12 @@ public class ColisService implements IServices<Colis> {
         ps.setString(4, t.getLarrive());
         ps.setInt(5, t.getId());
         ps.executeUpdate();
+        ok = true;
+        
+        } catch (SQLException ex) {
+            System.out.println("error in delete " + ex);
+        }
+        return ok; 
     }
     
 
@@ -62,12 +70,18 @@ public class ColisService implements IServices<Colis> {
     
     
     @Override
-    public void supprimer(Colis t) throws SQLException {
-        String req = " DELETE FROM colis where id_colis = ?   ";
-       
-               PreparedStatement ps = cnx.prepareStatement(req);
-             ps.setInt(1, t.getId());
-             ps.executeUpdate();
+    public boolean supprimer(Colis t) throws SQLException {
+    
+                  boolean ok = false;
+        try {
+            PreparedStatement req = cnx.prepareStatement("delete from colis where id_colis = ? ");
+            req.setInt(1, t.getId());
+            req.executeUpdate();
+            ok = true;
+        } catch (SQLException ex) {
+            System.out.println("error in delete " + ex);
+        }
+        return ok;  
 
     }
 
@@ -76,8 +90,8 @@ public class ColisService implements IServices<Colis> {
     
     
     
-    @Override
-    public List<Colis> recuperer(Colis t) throws SQLException {
+     @Override
+    public List<Colis> recuperer() throws SQLException {
       
          List<Colis> Colis = new ArrayList<>();
         String s = "select * from colis";

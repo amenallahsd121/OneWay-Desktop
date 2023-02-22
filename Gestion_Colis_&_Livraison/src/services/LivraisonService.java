@@ -40,9 +40,10 @@ public class LivraisonService implements IServices<Livraison>{
     }
 
     @Override
-    public void modifier(Livraison t) throws SQLException {
+    public boolean modifier(Livraison t) throws SQLException {
       
-        
+         boolean ok = false;
+        try {
          String req = " UPDATE livraison SET  etat = ? , id_colis = ? , cin_livreur = ?  where id_livraison = ?    ";
          PreparedStatement ps = cnx.prepareStatement(req);
          ps.setString(1, t.getEtat());
@@ -50,21 +51,35 @@ public class LivraisonService implements IServices<Livraison>{
          ps.setString(3, t.getCin_livreur());
          ps.setInt(4, t.getId_livraison());
          ps.executeUpdate();
-         
+         ok = true;
+        } catch (SQLException ex) {
+            System.out.println("error in update " + ex);
+        }
+        return ok;  
+
     }
 
+         
+    
+
     @Override
-    public void supprimer(Livraison t) throws SQLException {
+    public boolean supprimer(Livraison t) throws SQLException {
       
-            String req = " DELETE FROM livraison where cin_livreur = ? " ;
-             PreparedStatement ps = cnx.prepareStatement(req);
-             ps.setString(1, t.getCin_livreur());
-             ps.executeUpdate();
+           boolean ok = false;
+        try {
+            PreparedStatement req = cnx.prepareStatement("delete from livraison where id_livraison = ? ");
+            req.setInt(1, t.getId_livraison());
+            req.executeUpdate();
+            ok = true;
+        } catch (SQLException ex) {
+            System.out.println("error in delete " + ex);
+        }
+        return ok;  
         
     }
 
     @Override
-    public List<Livraison> recuperer(Livraison t) throws SQLException {
+    public List<Livraison> recuperer() throws SQLException {
         
         
           List<Livraison> Livraison = new ArrayList<>();
