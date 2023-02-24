@@ -19,6 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import services.ColisService;
 import entities.Colis;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  * FXML Controller class
  *
@@ -31,71 +36,91 @@ public class ModifierColisController implements Initializable {
     @FXML
     private TextField poidsTF;
     @FXML
-    private TextField typeTF;
+    private ChoiceBox<String> typeTF;
     @FXML
-    private TextField lieudTF;
+    private ChoiceBox<String> lieudTF;
     @FXML
-    private TextField lieuaTF;
-    
-    
-    
-ColisService CS = new ColisService();
+    private ChoiceBox<String> lieuaTF;
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private static int idd;
+    private String[] gouvernorat = {"Ariana", "Béja", "Ben Arous", "Bizerte", "Gabès", "Gafsa", "Jendouba", "Kairouan", "Kasserine", "Kébili", "Kef", "Mahdia", "Manouba", "Médenine", "Monastir", "Nabeul", "Sfax", "Sidi Bouzid", "Siliana", "Sousse", "Tataouine", "Tozeur", "Tunis", "Zaghouan"};
+
+    private String[] type = {"Agro-Alimentaire", "Matériel Electronique", "Meubles", "Pièces Automobiles Et Industrielles"};
+    ColisService CS = new ColisService();
+
     @FXML
     private TextField idcolis;
+    @FXML
+    private ImageView imagelogo;
+
+    /////////////////////////////////////////////////////   Initializes the controller class.  ////////////////////////////////////////////////////////
     /**
-     * Initializes the controller class.
+     * 
+     * 
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
 
-    @FXML
-    private void Modifier_Colis(ActionEvent event) {
-        
-         try {
-            Colis c = new Colis();
-            
-            c.setId(Integer.parseInt(idcolis.getText()));
-            c.setPoids(Float.parseFloat(poidsTF.getText()));
-            c.setType(typeTF.getText());
-            c.setLdepart(lieudTF.getText());
-            c.setLarrive(lieuaTF.getText());
-            CS.modifier(c);
-            System.out.println("Colis Modifié Avec Succès");
-        }
-        
-        catch (SQLException ex) {
-            System.out.println("Error" + ex.getMessage());
-    }
-        
-        
-        
-        
+        Image Logoimage = new Image(getClass().getResourceAsStream("../img/LOGO.png"));
+        imagelogo.setImage(Logoimage);
+        typeTF.getItems().addAll(type);
+        lieudTF.getItems().addAll(gouvernorat);
+        lieuaTF.getItems().addAll(gouvernorat);
+
     }
 
+    //////////////////////////////////////////////////////// AFFICHER COLIS ///////////////////////////////////////////////////////////////////
+    
     @FXML
     private void Afficher_Colis(ActionEvent event) {
-        
-        
-        
-         try {
+
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherColis.fxml"));
-            Parent root = (Parent)loader.load();
-            AfficherColisController controller = (AfficherColisController)loader.getController();
-            
+            Parent root = (Parent) loader.load();
+            AfficherColisController controller = (AfficherColisController) loader.getController();
+
             typeTF.getScene().setRoot(root);
             lieudTF.getScene().setRoot(root);
             lieuaTF.getScene().setRoot(root);
             poidsTF.getScene().setRoot(root);
-             }
-         
-         catch (IOException ex) {
+
+        } catch (IOException ex) {
             System.out.println("error" + ex.getMessage());
         }
+
+    }
+
+    /////////////////////////////////////////////////////////////// MODIFIER COLIS ///////////////////////////////////////////////////////////////// 
+    
+    @FXML
+    private void Modifier_Colis(ActionEvent event) {
+
+        try {
+            Colis c = new Colis();
+            c.setId(idd);
+            c.setPoids(Float.parseFloat(poidsTF.getText()));
+            c.setType(typeTF.getValue());
+            c.setLdepart(lieudTF.getValue());
+            c.setLarrive(lieuaTF.getValue());
+            CS.modifier(c);
+            showMessageDialog(null, "Colis Modifier Avec Succès");
+        } catch (SQLException ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+
+       
+    }
+
+     ///////////////////////////////////////////////////////////// RECUPERER ID //////////////////////////////////////////////////////////////////////////
+    
+    public static int getIdd(Colis c) {
         
-        
+        idd = c.getId();
+        return idd;
     }
     
     
+
 }

@@ -29,6 +29,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import static javax.swing.JOptionPane.showMessageDialog;
 import services.ColisService;
 
 /**
@@ -40,8 +41,6 @@ public class AfficherColisController implements Initializable {
 
     @FXML
     private TableView<Colis> colisTV;
-    @FXML
-    private TableColumn<Colis, Integer> idTV;
     @FXML
     private TableColumn<Colis, Float> poidsTV;
     @FXML
@@ -61,6 +60,12 @@ public class AfficherColisController implements Initializable {
     @FXML
     private TableColumn<Colis, Button> Modifier;
 
+    
+    
+  
+     
+     
+     
     /**
      * Initializes the controller class.
      */
@@ -72,13 +77,14 @@ public class AfficherColisController implements Initializable {
             List<Colis> Coliett = CS.recuperer();
             ObservableList<Colis> olc = FXCollections.observableArrayList(Coliett);
             
-            idTV.setCellValueFactory(new PropertyValueFactory<Colis, Integer>("id"));
+            
             poidsTV.setCellValueFactory(new PropertyValueFactory<Colis, Float>("poids"));
             typeTV.setCellValueFactory(new PropertyValueFactory<Colis, String>("type"));
             lieudTV.setCellValueFactory(new PropertyValueFactory<Colis, String>("Ldepart"));
             lieuaTV.setCellValueFactory(new PropertyValueFactory<Colis, String>("Larrive"));
             this.delete();
             this.update();
+            
       
         
         colisTV.setItems(olc);
@@ -118,6 +124,7 @@ public class AfficherColisController implements Initializable {
                                     
                                     colisTV.getItems().remove(getIndex());
                                     colisTV.refresh();
+                                     showMessageDialog(null, "Colis Supprimé Avec Succès" );
                                     
                                          }
                             } catch (SQLException ex) {
@@ -158,12 +165,15 @@ public class AfficherColisController implements Initializable {
                         Button b = new Button("Modifier");
                         b.setOnAction((event) -> {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierColis.fxml"));
-                            
+                             ModifierColisController.getIdd(colisTV.getItems().get(getIndex()));
+                             
                             try {
                                   Parent root = loader.load();
                                   welcomeLb.getScene().setRoot(root);
-                                  
                                   colisTV.refresh();
+                                  
+                                
+                                
                                   
 
                                          } catch (IOException ex) {
@@ -193,20 +203,6 @@ public class AfficherColisController implements Initializable {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    void setData(String Message) {
-     welcomeLb.setText("" + Message);
-    }
 
     
     
@@ -218,10 +214,7 @@ public class AfficherColisController implements Initializable {
               FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterColis.fxml"));
               Parent root = loader.load();
               welcomeLb.getScene().setRoot(root);
-             // Scene homepagescene = new Scene(root);
-              //Stage S = new Stage();
-              //S.setScene(homepagescene);
-              //S.show();
+            
               
                
               
