@@ -5,6 +5,7 @@
  */
 package services;
 
+import Entities.AffectationOpColis;
 import Entities.Evenement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.MyDB;
 
 /**
@@ -101,5 +105,31 @@ List<Evenement> event = new ArrayList<>();
         
         return event;
     }  
+    
+    
+    public Evenement recherche(int id) {
+        Evenement P = null;
+        String Req = "select * from evenement where id_event= " + id + "";
+                  
+   
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               P= new Evenement(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return P;
+    }
+
+
+
+    
+    
    
 }

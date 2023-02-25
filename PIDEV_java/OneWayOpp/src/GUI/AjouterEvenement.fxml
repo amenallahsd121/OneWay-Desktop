@@ -23,6 +23,7 @@
       <DatePicker fx:id="mydatefin" layoutX="166.0" layoutY="199.0" prefHeight="26.0" prefWidth="168.0" promptText="Date Fin" />
       <Button fx:id="updatebtn" layoutX="388.0" layoutY="199.0" mnemonicParsing="false" onAction="#modifierEvenemet" prefHeight="26.0" prefWidth="99.0" text="Modifier" />
       <Button fx:id="supprimerBtn" layoutX="388.0" layoutY="250.0" mnemonicParsing="false" onAction="#supprimerEvenement" prefHeight="26.0" prefWidth="99.0" text="Supprimer" />
-      <TextField fx:id="id" layoutX="166.0" layoutY="72.0" promptText="id(modifier,supprimer)" />
+      <TextField fx:id="id" layoutX="166.0" layoutY="72.0" promptText="id(modifier,supprimer)" visible="false" />
+      <Label fx:id="lbl1" layoutX="139.0" layoutY="416.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

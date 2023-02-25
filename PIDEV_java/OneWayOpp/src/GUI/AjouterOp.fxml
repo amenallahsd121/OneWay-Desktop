@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #F4D8CD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterOpController">
+   <children>
+      <Label layoutX="30.0" layoutY="31.0" prefHeight="62.0" prefWidth="168.0" text="Gestion Opportunite :">
+         <font>
+            <Font name="Dubai Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="depart" layoutX="176.0" layoutY="108.0" promptText="depart" />
+      <TextField fx:id="arrivee" layoutX="176.0" layoutY="157.0" promptText="arrivee" />
+      <TextField fx:id="descriptionn" layoutX="176.0" layoutY="342.0" promptText="Description" style="-fx-background-color: ;" />
+      <Button layoutX="398.0" layoutY="108.0" mnemonicParsing="false" onAction="#ajouterOpportunite" prefHeight="26.0" prefWidth="99.0" text="Ajouter" />
+      <Button layoutX="398.0" layoutY="157.0" mnemonicParsing="false" onAction="#AfficherOpportunite" prefHeight="26.0" prefWidth="99.0" text="Afficher" />
+      <DatePicker fx:id="datee" layoutX="177.0" layoutY="196.0" prefHeight="26.0" prefWidth="168.0" promptText="Date " />
+      <Button fx:id="updatebtn" layoutX="398.0" layoutY="209.0" mnemonicParsing="false" onAction="#modifierOportunite" prefHeight="26.0" prefWidth="99.0" text="Modifier" />
+      <Label fx:id="lbl1" layoutX="149.0" layoutY="426.0" text="Label" visible="false" />
+      <TextField fx:id="heurdep" layoutX="176.0" layoutY="247.0" promptText="Heur_Depart" />
+      <TextField fx:id="heurArr" layoutX="176.0" layoutY="300.0" promptText="heur_Arrive" />
+      <TextField fx:id="id" layoutX="240.0" layoutY="62.0" visible="false" />
+   </children>
+</AnchorPane>

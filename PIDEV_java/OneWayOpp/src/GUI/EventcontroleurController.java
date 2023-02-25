@@ -23,7 +23,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import GUI.AjouterEvenementController;
+import static java.lang.Math.E;
+import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import services.EvenementService;
 
 /**
@@ -57,6 +61,7 @@ public class EventcontroleurController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    Evenement e = new Evenement();
      public void setEvenement(Evenement  E) {
      
        nomLabel.setText(E.getNom());
@@ -64,7 +69,7 @@ public class EventcontroleurController implements Initializable {
         date_fin_label.setText(E.getDescription());
         
       id_label.setText(String.valueOf(E.getId_event()));
-      
+      e=E;
        
     }
 //     public int getIdEvenement(Evenement E){
@@ -78,16 +83,26 @@ public class EventcontroleurController implements Initializable {
    Evenement e =new Evenement();
     e.setId_event(Integer.parseInt(id_label.getText()));
         try {
-            es.supprimer(e);
-              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            
+              Alert alert = new Alert(Alert.AlertType.WARNING);
 
-              alert.setTitle("Information Dialog");
+              alert.setTitle("confirmation Dialog");
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Evenement supprimer avec succés!");
-
-              alert.show();
+              alert.setContentText("Voulez vous supprimer cet Evenement!");
+              ButtonType cancelBtn = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+             alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
+              Optional<ButtonType> result = alert.showAndWait();
+           
+           if (result.isPresent() && result.get() == ButtonType.OK) {
+    // User clicked OK 
+           es.supprimer(e);
+} else {
+    // User clicked cancel or closed the dialog
+               System.out.println("Suppression Annuler");
+    
+}
             Parent loader = FXMLLoader.load(getClass().getResource("afficherEvenement.fxml"));
             nomLabel.getScene().setRoot(loader);
             
@@ -98,16 +113,38 @@ public class EventcontroleurController implements Initializable {
 
     @FXML
     private void modifierEvenement(ActionEvent event) throws IOException {
-        Evenement e =new Evenement();
-    e.setId_event(Integer.parseInt(id_label.getText()));
-    Parent loader = FXMLLoader.load(getClass().getResource("AjouterEvenement.fxml"));
+        
+      
     
-            nomLabel.getScene().setRoot(loader);
+            
+            
+            
+            
+             try {
+          Parent loader = FXMLLoader.load(getClass().getResource("AjouterEvenement.fxml"));
+         // Parent root = loader.load();
+         
+         AjouterEvenementController.getIdd(e.getId_event());
+                 
+                         
+                 
+
+             nomLabel.getScene().setRoot(loader);
+        
+            
+        } catch (NullPointerException ex) {
+            System.out.println("error" + ex.getMessage());
+        }
+           
             
     
         
     }
 
+//     public String setnomm(){
+//         return nomLabel.getText();
+//        
+//    }
     @FXML
     private void ParticiperEvent(ActionEvent event) throws IOException {
         
@@ -122,4 +159,5 @@ public class EventcontroleurController implements Initializable {
     }
     
     }
+    
 }

@@ -6,6 +6,7 @@
 package services;
 
 import Entities.AffectationOpColis;
+import Entities.Evenement;
 import Entities.Opportunite;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import utils.MyDB;
@@ -98,5 +101,71 @@ public class AffectationService implements  IService<AffectationOpColis>{
         }
         return laff;
     }
+
+    public ObservableList<Integer> idOpDisponible() {
+       
+        String Req = "select id_opp from opportinute ";
+                  
+  ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
+    }
+
+    
+     public ObservableList<Integer> idColisDisponible() {
+       
+        String Req = "select id_colis from colis ";
+                  
+  ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
+    }
+
+     public AffectationOpColis recherche(int id) {
+        AffectationOpColis P = null;
+        String Req = "select * from  affectationopcolis where id_aff= " + id + "";
+                  
+   
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               P= new AffectationOpColis(res.getInt(1), res.getInt(2), res.getInt(3));
+           
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return P;
+    }
+
+
     
 }

@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import services.EvenementService;
 
@@ -49,13 +50,20 @@ public class AjouterEvenementController implements Initializable {
     private Button supprimerBtn;
     @FXML
     private TextField id;
-
+    @FXML
+    private Label lbl1;
+    
+    Evenement events = new Evenement();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        events = es.recherche(idd);
+       
+        
+       
     }    
 
     @FXML
@@ -92,10 +100,40 @@ public class AjouterEvenementController implements Initializable {
       }
     }
      private void reset() {
+         
         nom.setText("");     
         awards.setText("");
         description.setText("");
     } 
+     public  void setData(){
+         events = es.recherche(idd);
+          int a =idd;
+        String b= events.getNom();
+        String c= events.getAwards();
+        String d = events.getDate_debut();
+         nom.setText(b);     
+        awards.setText(c);
+        description.setText(d);
+         
+     }
+     
+
+     
+     
+     
+     private static int idd;
+      
+    public static int getIdd(int id) {
+        idd = id;
+        return idd;
+        
+        
+    }
+    
+    
+    
+    
+    
     @FXML
     private void AfficheEvenement(ActionEvent event) {
          try {
@@ -109,16 +147,28 @@ public class AjouterEvenementController implements Initializable {
 
     @FXML
     private void modifierEvenemet(ActionEvent event) {
+        
+       
+        
+        
         LocalDate date_debut,date_fin;
           date_debut = mydatedebut.getValue();
           date_fin = mydatefin.getValue();
           Evenement e = new Evenement();
+          
+          e.setId_event(idd);
           e.setNom(nom.getText());
           e.setDate_debut(date_debut.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
           e.setDate_fin(date_fin.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
           e.setAwards(awards.getText());
           e.setDescription(description.getText());
-          e.setId_event(Integer.parseInt(id.getText()));
+         ///////////////////////////////////////////////
+         id.setText(String.valueOf(idd)); 
+         
+        
+          
+   
+          
            try {
                
                es.modifier(e);
@@ -145,7 +195,7 @@ public class AjouterEvenementController implements Initializable {
       e.setId_event(Integer.parseInt(id.getText()));
       try{
            es.supprimer(e);
-           Alert alert = new Alert(AlertType.INFORMATION);
+           Alert alert = new Alert(AlertType.WARNING);
 
               alert.setTitle("Information Dialog");
 

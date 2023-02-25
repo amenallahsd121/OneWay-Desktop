@@ -5,6 +5,7 @@
  */
 package services;
 
+import Entities.Evenement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -43,7 +44,7 @@ public class OpporuniteService implements IService<Opportunite>{
         try{
         String req = "UPDATE opportinute SET date = ?,depart = ?,heur_depart = ?,arrivee = ?,heur_arrivee= ?,description= ? where id_opp = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
-        ps.setString(1, t.getDate());
+        ps.setDate(1, t.getDate());
         ps.setString(2, t.getDepart());
         ps.setFloat(3, t.getHeur_depart());
         ps.setString(4, t.getArrivee());
@@ -81,7 +82,7 @@ public class OpporuniteService implements IService<Opportunite>{
         while(rs.next()){
             Opportunite p = new Opportunite();
            // p.setAge(rs.getInt("age"));
-            p.setDate(rs.getString("date"));
+            p.setDate(rs.getDate("date"));
             p.setDepart(rs.getString("depart"));
             p.setHeur_depart(rs.getFloat("heur_depart"));
             p.setArrivee(rs.getString("arrivee"));
@@ -96,6 +97,26 @@ public class OpporuniteService implements IService<Opportunite>{
         }
         return lo;
     }
+public Opportunite recherche(int id) {
+        Opportunite P = null;
+        String Req = "select * from opportinute where id_opp= " + id + "";
+                  
+   
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               P= new Opportunite(res.getInt(1), res.getDate(2), res.getString(3), res.getFloat(4), res.getString(5), res.getFloat(6) , res.getString(7));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return P;
+    }
+
 
     
 }

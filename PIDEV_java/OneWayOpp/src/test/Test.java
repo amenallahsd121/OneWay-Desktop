@@ -7,6 +7,7 @@ package test;
 
 import Entities.AffectationOpColis;
 import Entities.Opportunite;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,19 +21,20 @@ import services.OpporuniteService;
  */
 public class Test {
     public static void main(String[] args) {
-      //  MyDB db = new MyDB();
+        //  MyDB db = new MyDB();
+        Date Dateop = new Date(100, 3,8);
       //*******************************table Opportuniteé******************************
         try {
-        Opportunite op1 = new Opportunite(25,"10/10/2023", "fraance",6f, "gabes" ,10f, "mmmmmmmmmmmmm");
-        Opportunite op2 = new Opportunite("10/10/2023", "cccc",6f, "ccccccc" ,10f, "vvvvvvv");
+        Opportunite op1 = new Opportunite(27,Dateop, "fraance",6f, "gabes" ,10f, "mmmmmmmmmmmmm");
+       // Opportunite op2 = new Opportunite("10/10/2023", "cccc",6f, "ccccccc" ,10f, "vvvvvvv");
         
         
         OpporuniteService os = new OpporuniteService();
         
         // os.supprimer(16);
-            //os.supprimer(op1);
-                os.modifier(op1);
-            //   os.ajouter(op2);
+           // os.supprimer(op1);
+              //  os.modifier(op1);
+             //  os.ajouter(op1);
             
             System.out.println(os.recuperer(op1));
         

@@ -5,6 +5,8 @@
  */
 package Entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author Meddeb sofien
@@ -12,12 +14,13 @@ package Entities;
 public class Opportunite {
       private int id_opp;
       private Float heure_arrivee,heur_depart;
-      private String date,depart,arrivee,description;
+      private String depart,arrivee,description;
+      Date date;
 
     public Opportunite() {
     }
 
-    public Opportunite(int id_opp,String date,String depart,Float heur_depart, String arrivee, Float heure_arrivee,String description) {
+    public Opportunite(int id_opp,Date date,String depart,Float heur_depart, String arrivee, Float heure_arrivee,String description) {
         this.id_opp = id_opp;
         this.heure_arrivee = heure_arrivee;
         this.heur_depart = heur_depart;
@@ -26,7 +29,7 @@ public class Opportunite {
         this.arrivee = arrivee;
         this.description = description;
     }
-     public Opportunite(String date,String depart,Float heur_depart, String arrivee, Float heure_arrivee,String description) {
+     public Opportunite(Date date,String depart,Float heur_depart, String arrivee, Float heure_arrivee,String description) {
         
         this.heure_arrivee = heure_arrivee;
         this.heur_depart = heur_depart;
@@ -48,7 +51,7 @@ public class Opportunite {
         return heur_depart;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -76,7 +79,7 @@ public class Opportunite {
         this.heur_depart = heur_depart;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -3,18 +3,38 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/event.jpg</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/NewFXMain.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/Test.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterEvenementController.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/EvenementService.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherEvenementController.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/AffectationService.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/EventcontroleurController.java</file>
-            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/TEST2.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterOpController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterOp.fxml</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterAffectation.fxml</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/nomLabel.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/Entities/Opportunite.java</file>
             <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/utils/MyDB.java</file>
             <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/OpporuniteService.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AffeccontrolController.java</file>
             <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/ParticipationController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherOpController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/event.jpg</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherAffectationController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterEvenementController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/Entities/AffectationOpColis.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/EvenementService.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/AffectationService.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/opcntr.fxml</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/Affectation.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/OpcntrController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/IService.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/Test.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/services/ParticipationService.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherEvenementController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherAffectation.fxml</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/TEST2.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/NewFXMain.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/Entities/Evenement.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AjouterAffectationController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/EventcontroleurController.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/test/NewFXMainop.java</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/AfficherOp.fxml</file>
+            <file>file:/C:/Users/Meddeb%20sofien/Desktop/PIDEV_java/OneWayOpp/src/GUI/Affeccontrol.fxml</file>
         </group>
     </open-files>
 </project-private>
