@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="262.0" prefWidth="258.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AffeccontrolController">
+<AnchorPane id="AnchorPane" prefHeight="234.0" prefWidth="244.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AffeccontrolController">
    <children>
       <Label layoutX="24.0" layoutY="57.0" prefHeight="18.0" prefWidth="98.0" text="id de colis:">
          <font>
@@ -21,6 +21,6 @@
       <Label fx:id="idoplabel" layoutX="145.0" layoutY="99.0" text="Label" />
       <Button fx:id="supbtn" layoutX="34.0" layoutY="160.0" mnemonicParsing="false" onAction="#supprimerAffectation" prefHeight="26.0" prefWidth="98.0" text="Supprimer" />
       <Button fx:id="modifierbtn" layoutX="34.0" layoutY="200.0" mnemonicParsing="false" onAction="#modifierAffectation" prefHeight="26.0" prefWidth="98.0" text="Modifier" />
-      <Label fx:id="id_label" layoutX="193.0" layoutY="28.0" text="Label" />
+      <Label fx:id="id_label" layoutX="193.0" layoutY="28.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

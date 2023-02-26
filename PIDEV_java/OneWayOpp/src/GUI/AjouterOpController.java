@@ -7,6 +7,8 @@ package GUI;
 
 import Entities.Evenement;
 import Entities.Opportunite;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -26,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javax.swing.JTextField;
 import services.OpporuniteService;
 
 /**
@@ -57,14 +60,30 @@ public class AjouterOpController implements Initializable {
     Opportunite oppp = new Opportunite();
     @FXML
     private TextField id;
+    
+  //  JTextField textField = new JTextField();
+
     /**
      * Initializes the controller class.
      */
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         oppp = os.recherche(idd);
-    }    
+        
+//        heurArr.addKeyListener(new KeyAdapter() {
+//          public void keyTyped(KeyEvent e) {
+//        char c = e.getKeyChar();
+//        if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+//            e.consume();  // ignorer l'événement
+//        }  
+//}
+//        )
+//    }   
+                }
 
     @FXML
     private void ajouterOpportunite(ActionEvent event) {
@@ -178,5 +197,26 @@ public class AjouterOpController implements Initializable {
         heurArr.setText("");
         heurdep.setText("");
     } 
+
+    @FXML
+    private void check1(javafx.scene.input.KeyEvent event) {
+        
+        if(event.getCharacter().matches("[^\\e\t\r\\d+0 .__ ]")){
+            event.consume();
+            heurdep.setStyle("fx-border-color: red");
+        }
+        else {
+            heurdep.setStyle("fx-border-color: blue");
+        }
+    }
+
+    @FXML
+    private void check2(javafx.scene.input.KeyEvent event) {
+    
+       if(event.getCharacter().matches("[^\\e\t\r\\d+0 . \\d{2}$ ]")){
+            event.consume();
+        }
+
+    }
     
 }

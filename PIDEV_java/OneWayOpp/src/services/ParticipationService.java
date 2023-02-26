@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.MyDB;
 
 /**
@@ -89,6 +91,27 @@ public class ParticipationService implements  IService<Participation>{
           
       }
         return  lP;
+    }
+    
+     public ObservableList<Integer> getidclient() {
+       
+        String Req = "select id from utilisateur ";
+                  
+      ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
     }
     
 }

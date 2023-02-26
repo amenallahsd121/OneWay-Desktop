@@ -17,6 +17,6 @@
          </font>
       </Label>
       <ComboBox fx:id="comboColis" layoutX="126.0" layoutY="83.0" prefWidth="150.0" promptText="idColis" />
-      <Button fx:id="modifierbtnn" layoutX="362.0" layoutY="171.0" mnemonicParsing="false" onAction="#modifierAffectation" text="Modifier" />
+      <Button fx:id="modifierbtnn" layoutX="357.0" layoutY="155.0" mnemonicParsing="false" onAction="#modifierAff" text="Modifier" />
    </children>
 </AnchorPane>

@@ -34,5 +34,6 @@
          </content>
       </ScrollPane>
       <Button fx:id="retour_btn" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#retournerHome" text="Retour" />
+      <Button fx:id="affichparticipbtn" layoutX="341.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficherparticipation" prefHeight="26.0" prefWidth="145.0" text="AfficherParticipation " />
    </children>
 </AnchorPane>

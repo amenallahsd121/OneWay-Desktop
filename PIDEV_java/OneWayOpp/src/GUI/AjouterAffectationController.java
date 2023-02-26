@@ -47,6 +47,8 @@ public class AjouterAffectationController implements Initializable {
     
     AffectationOpColis a = new AffectationOpColis();
     AffectationService as = new AffectationService();
+    @FXML
+    private Button modifierbtnn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -109,6 +111,33 @@ public class AjouterAffectationController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void modifierAff(ActionEvent event) throws IOException {
+      
+        AffectationOpColis e = new AffectationOpColis();          
+          e.setIdAff(idd);
+          e.setIdcolis(comboColis.getValue());
+          e.setIdopp(comboOp.getValue());          
+           try {
+               
+               as.modifier(e);
+               Alert alert = new Alert(AlertType.INFORMATION);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("Evenement Modifier avec succés!");
+
+              alert.show();
+              Parent loader = FXMLLoader.load(getClass().getResource("AfficherAffectation.fxml"));
+            comboColis.getScene().setRoot(loader);
+               
+           } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+      }
     }
     
 }

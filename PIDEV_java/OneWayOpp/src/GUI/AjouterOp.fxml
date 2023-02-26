@@ -22,8 +22,8 @@
       <DatePicker fx:id="datee" layoutX="177.0" layoutY="196.0" prefHeight="26.0" prefWidth="168.0" promptText="Date " />
       <Button fx:id="updatebtn" layoutX="398.0" layoutY="209.0" mnemonicParsing="false" onAction="#modifierOportunite" prefHeight="26.0" prefWidth="99.0" text="Modifier" />
       <Label fx:id="lbl1" layoutX="149.0" layoutY="426.0" text="Label" visible="false" />
-      <TextField fx:id="heurdep" layoutX="176.0" layoutY="247.0" promptText="Heur_Depart" />
-      <TextField fx:id="heurArr" layoutX="176.0" layoutY="300.0" promptText="heur_Arrive" />
+      <TextField fx:id="heurdep" layoutX="176.0" layoutY="247.0" onKeyTyped="#check1" promptText="Heur_Depart" />
+      <TextField fx:id="heurArr" layoutX="176.0" layoutY="300.0" onKeyTyped="#check2" promptText="heur_Arrive" />
       <TextField fx:id="id" layoutX="240.0" layoutY="62.0" visible="false" />
    </children>
 </AnchorPane>

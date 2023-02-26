@@ -6,13 +6,12 @@
 package GUI;
 
 import Entities.Evenement;
+import Entities.Participation;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,42 +20,41 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import services.EvenementService;
+import services.ParticipationService;
 
 /**
  * FXML Controller class
  *
  * @author Meddeb sofien
  */
-public class AfficherEvenementController implements Initializable {
+public class AfficherParticipationController implements Initializable {
 
-    @FXML
-    private GridPane gridpane;
-    EvenementService es = new EvenementService();
-      Evenement e1;
-    @FXML
-    private Button retour_btn;
-    @FXML
-    private Button affichparticipbtn;
     /**
      * Initializes the controller class.
      */
-    @Override
+  
+    Participation p;
+    ParticipationService ps = new ParticipationService();
+    @FXML
+    private GridPane gridpane;
+    @FXML
+    private Button retour_btn;
+      @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
          try {
              
-            List<Evenement> events = es.recuperer(e1);
+            List<Participation> par = ps.recuperer(p);
             int row = 0;
             int column = 0;
-            for (int i = 0; i < events.size(); i++) {
+            for (int i = 0; i < par.size(); i++) {
                 //chargement dynamique d'une interface
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Eventcontroleur.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("participationcontrol.fxml"));
                 AnchorPane pane = loader.load();
                
                 //passage de parametres
-                EventcontroleurController controller = loader.getController();
-                controller.setEvenement(events.get(i));
+                ParticipationcontrolController controller = loader.getController();
+                controller.setParticipationn(par.get(i));
                 
 
                 gridpane.add(pane, column, row);
@@ -74,28 +72,14 @@ public class AfficherEvenementController implements Initializable {
     @FXML
     private void retournerHome(ActionEvent event) {
         
-        try {
+         try {
            
 
-            Parent loader = FXMLLoader.load(getClass().getResource("AjouterEvenement.fxml"));
+            Parent loader = FXMLLoader.load(getClass().getResource("AfficherEvenement.fxml"));
            gridpane.getScene().setRoot(loader);
        
         } catch (IOException ex) {
             System.out.println(ex.getMessage());        }
     }
-
-    @FXML
-    private void afficherparticipation(ActionEvent event) {
-        
-        try {
-           
-
-            Parent loader = FXMLLoader.load(getClass().getResource("AfficherParticipation.fxml"));
-           gridpane.getScene().setRoot(loader);
-       
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());        }
-    }
-    
     
 }

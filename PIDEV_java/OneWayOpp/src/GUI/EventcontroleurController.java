@@ -6,6 +6,7 @@
 package GUI;
 
 import Entities.Evenement;
+import Entities.Participation;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -25,10 +26,14 @@ import javafx.scene.layout.AnchorPane;
 import GUI.AjouterEvenementController;
 import static java.lang.Math.E;
 import java.util.Optional;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import services.EvenementService;
+import services.ParticipationService;
 
 /**
  * FXML Controller class
@@ -53,6 +58,9 @@ public class EventcontroleurController implements Initializable {
     private Label id_label;
     @FXML
     private Button participerbtn;
+    @FXML
+    private ComboBox<Integer> id_client;
+   
    
     /**
      * Initializes the controller class.
@@ -62,6 +70,7 @@ public class EventcontroleurController implements Initializable {
         // TODO
     }    
     Evenement e = new Evenement();
+    ParticipationService ps = new ParticipationService();
      public void setEvenement(Evenement  E) {
      
        nomLabel.setText(E.getNom());
@@ -70,6 +79,9 @@ public class EventcontroleurController implements Initializable {
         
       id_label.setText(String.valueOf(E.getId_event()));
       e=E;
+       ObservableList<Integer> list1 = FXCollections.observableArrayList();        
+        list1 = ps.getidclient();
+        id_client.setItems(list1);
        
     }
 //     public int getIdEvenement(Evenement E){
@@ -148,15 +160,33 @@ public class EventcontroleurController implements Initializable {
     @FXML
     private void ParticiperEvent(ActionEvent event) throws IOException {
         
-            
-            try {
 
-            Parent loader = FXMLLoader.load(getClass().getResource("Participation.fxml"));
-           nomLabel.getScene().setRoot(loader);
-       
-        } catch (IOException ex) {
+          Participation p = new Participation();
+          p.setId_event(e.getId_event());
+          p.setId_user(id_client.getValue());
+          
+           
+
+        try {
+            ps.ajouter(p);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("Evenement insérée avec succés!");
+
+              alert.show();
+               Parent loader = FXMLLoader.load(getClass().getResource("AfficherParticipation.fxml"));
+           id_label.getScene().setRoot(loader);
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-    }
+        }
+               
+
+       
+        
     
     }
     
