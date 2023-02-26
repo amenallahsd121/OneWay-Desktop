@@ -76,8 +76,7 @@ public class AjouterColisController implements Initializable {
     
     
     
-    
-    
+  
     
     @FXML
     private void Ajouter_Colis(ActionEvent event) {
@@ -89,7 +88,7 @@ public class AjouterColisController implements Initializable {
             c.setLdepart(lieudTF.getValue());
             c.setLarrive(lieuaTF.getValue());
             CS.ajouter(c);
-             showMessageDialog(null, "Colis Ajouté Avec Succès" );
+             showMessageDialog(null,"Colis Ajouté Avec Succès");
             
         }
         
@@ -99,6 +98,9 @@ public class AjouterColisController implements Initializable {
         
     }
 
+    
+    
+    
     @FXML
     private void Afficher_Colis(ActionEvent event) {
         

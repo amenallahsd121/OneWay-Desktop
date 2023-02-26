@@ -59,7 +59,7 @@ public class ColisService implements IServices<Colis> {
         ok = true;
         
         } catch (SQLException ex) {
-            System.out.println("error in delete " + ex);
+            System.out.println("error in update" + ex);
         }
         return ok; 
     }

@@ -10,17 +10,26 @@ package entities;
  * @author amens
  */
 public class Livreur {
-    
+    int id_livreur;
     String cin_livreur,nom,prenom,vehicule;
 
     public Livreur() {
     }
 
-    public Livreur(String cin_livreur, String nom, String prenom, String vehicule) {
+    public Livreur(int id_livreur, String cin_livreur, String nom, String prenom, String vehicule) {
+        this.id_livreur = id_livreur;
         this.cin_livreur = cin_livreur;
         this.nom = nom;
         this.prenom = prenom;
         this.vehicule = vehicule;
+    }
+
+    public int getId_livreur() {
+        return id_livreur;
+    }
+
+    public void setId_livreur(int id_livreur) {
+        this.id_livreur = id_livreur;
     }
 
     public String getCin_livreur() {
@@ -57,9 +66,17 @@ public class Livreur {
 
     @Override
     public String toString() {
-        return "Livreur{" + "CIN=" + cin_livreur + ", nom=" + nom + ", prenom=" + prenom + ", vehicule=" + vehicule + '}';
+        return "Livreur{" + "id_livreur=" + id_livreur + ", cin_livreur=" + cin_livreur + ", nom=" + nom + ", prenom=" + prenom + ", vehicule=" + vehicule + '}';
     }
     
     
     
+    
+    
+    
+    
+    
+    
+    
+
 }
