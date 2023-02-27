@@ -12,25 +12,18 @@ package entities;
 public class Colis {
  
       private 
-    int id;
-    double poids;
+    int id,id_client;
+    double poids,prix;
     String type,Ldepart,Larrive;
 
-    
     public Colis() {
     }
 
-    public Colis(int id, double poids, String type, String Ldepart, String Larrive) {
+    public Colis(int id, int id_client, double poids, double prix, String type, String Ldepart, String Larrive) {
         this.id = id;
+        this.id_client = id_client;
         this.poids = poids;
-        this.type = type;
-        this.Ldepart = Ldepart;
-        this.Larrive = Larrive;
-    }
-    
-    
-    public Colis(double poids, String type, String Ldepart, String Larrive) {
-        this.poids = poids;
+        this.prix = prix;
         this.type = type;
         this.Ldepart = Ldepart;
         this.Larrive = Larrive;
@@ -44,12 +37,28 @@ public class Colis {
         this.id = id;
     }
 
+    public int getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
+    }
+
     public double getPoids() {
         return poids;
     }
 
     public void setPoids(double poids) {
         this.poids = poids;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     public String getType() {
@@ -78,8 +87,21 @@ public class Colis {
 
     @Override
     public String toString() {
-        return "Colis{" + "id=" + id + ", poids=" + poids + ", type=" + type + ", Ldepart=" + Ldepart + ", Larrive=" + Larrive + '}';
+        return "Colis{" + "id=" + id + ", id_client=" + id_client + ", poids=" + poids + ", prix=" + prix + ", type=" + type + ", Ldepart=" + Ldepart + ", Larrive=" + Larrive + '}';
     }
+
+   
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
     
 }

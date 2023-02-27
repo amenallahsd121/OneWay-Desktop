@@ -76,10 +76,28 @@ public class AfficherLivreurController implements Initializable {
 
     @FXML
     private void AfficherAfeecterColis(ActionEvent event) {
+        
+           try {
+         
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherLivraison.fxml"));
+            Parent root = (Parent)loader.load();
+            AfficherLivraisonController controller = (AfficherLivraisonController)loader.getController();
+            tttt.getScene().setRoot(root);
+         
+        
+        } catch (Exception e) {
+             System.out.println(e);
+                
+        }
+        
     }
+    
+    
 
     @FXML
     private void AfficherLivreur(ActionEvent event) {
+          showMessageDialog(null, " Vous Etes Déjà Là-Bas " ); 
+        
     }
     
     
@@ -108,9 +126,9 @@ public void AFFICHERLESLIVREUR(){
 
 }
 
+
     @FXML
-    private void AjouterLivreur(ActionEvent event) {
-        
+    private void Ajouter_Livreur(ActionEvent event) {
          try {
          
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterLivreur.fxml"));
@@ -123,7 +141,6 @@ public void AFFICHERLESLIVREUR(){
              System.out.println(e);
                 
         }
-        
     }
 
 

@@ -11,17 +11,17 @@ package entities;
  */
 public class Livraison {
     
-    int id_livraison,id_colis;
-    String etat,cin_livreur;
+    int id_livraison,id_colis,id_livreur;
+    String etat;
 
     public Livraison() {
     }
 
-    public Livraison(int id_livraison, int id_colis, String etat, String cin_livreur) {
+    public Livraison(int id_livraison, int id_colis, int id_livreur, String etat) {
         this.id_livraison = id_livraison;
         this.id_colis = id_colis;
+        this.id_livreur = id_livreur;
         this.etat = etat;
-        this.cin_livreur = cin_livreur;
     }
 
     public int getId_livraison() {
@@ -40,6 +40,14 @@ public class Livraison {
         this.id_colis = id_colis;
     }
 
+    public int getId_livreur() {
+        return id_livreur;
+    }
+
+    public void setId_livreur(int id_livreur) {
+        this.id_livreur = id_livreur;
+    }
+
     public String getEtat() {
         return etat;
     }
@@ -48,18 +56,12 @@ public class Livraison {
         this.etat = etat;
     }
 
-    public String getCin_livreur() {
-        return cin_livreur;
-    }
-
-    public void setCin_livreur(String cin_livreur) {
-        this.cin_livreur = cin_livreur;
-    }
-
     @Override
     public String toString() {
-        return "Livraison{" + "id_livraison=" + id_livraison + ", id_colis=" + id_colis + ", etat=" + etat + ", cin_livreur=" + cin_livreur + '}';
+        return "Livraison{" + "id_livraison=" + id_livraison + ", id_colis=" + id_colis + ", id_livreur=" + id_livreur + ", etat=" + etat + '}';
     }
+
+    
     
     
     

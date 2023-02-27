@@ -29,11 +29,11 @@ public class MainAjouter extends Application {
     public void start(Stage primaryStage) {
         
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AjouterColis.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AfficherColis.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root , 1100 , 700);
+        Scene scene = new Scene(root , 1200 , 700);
         
-        primaryStage.setTitle("Ajouter Colis");
+        primaryStage.setTitle("Colis");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -65,13 +65,12 @@ public class LivreurViewController implements Initializable {
     @FXML
     private void UpdateLivreur(ActionEvent event) {
         
+        ModifierLivreurController.getIdd(livreur);
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierLivreur.fxml"));
             Parent root = loader.load();
             vehiculetf.getScene().setRoot(root);
-            ModifierLivreurController.getIdd(livreur);
-    
-        
+
         } catch (Exception e) {
         }
         

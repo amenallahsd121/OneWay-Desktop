@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterLivreurController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="748.0" prefWidth="217.0" style="-fx-background-color: #000000;">
+      <VBox layoutX="-2.0" prefHeight="762.0" prefWidth="217.0" style="-fx-background-color: #000000;">
          <children>
             <ImageView fx:id="logo" fitHeight="121.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" translateY="15.0">
                <image>

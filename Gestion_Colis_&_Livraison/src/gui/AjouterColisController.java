@@ -5,28 +5,27 @@
  */
 package gui;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import com.sun.java.swing.plaf.windows.resources.windows;
 import entities.Colis;
 import java.io.IOException;
 import services.ColisService;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -38,90 +37,129 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class AjouterColisController implements Initializable {
 
     @FXML
-    private TextField poidsTF;
+    private ImageView logo;
+   
     @FXML
-    private ChoiceBox<String> typeTF;
+    private TextField poidstf;
     @FXML
-    private ChoiceBox<String> lieudTF;
+    private ChoiceBox<String> typetf;
     @FXML
-    private ChoiceBox<String> lieuaTF;
+    private ChoiceBox<String> lieudtf;
+    @FXML
+    private ChoiceBox<String> lieuatf;
+    @FXML
+    private ComboBox<Integer> id_clienttf;
+    @FXML
+    private TextField prixtf;
     
+     private String [] gouvernorat = {"Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Kef","Mahdia","Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan"};
+    
+    private String [] type = {"Agro-Alimentaire","Matériel Electronique","Meubles","Pièces Automobiles"};
+     Colis C = new Colis();
     ColisService CS = new ColisService();
+ 
     
-    
-    
-    private String [] gouvernorat = {"Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Kef","Mahdia","Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan"};
-    
-    private String [] type = {"Agro-Alimentaire","Matériel Electronique","Meubles","Pièces Automobiles Et Industrielles"};
-    
-    
-    
-    @FXML
-    private Label ajouter_modifier;
-    @FXML
-    private ImageView imagelogo;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         // TODO
-       Image Logoimage = new Image(getClass().getResourceAsStream("../img/LOGO.png"));
-        imagelogo.setImage(Logoimage);
-        typeTF.getItems().addAll(type);
-        lieudTF.getItems().addAll(gouvernorat);
-        lieuaTF.getItems().addAll(gouvernorat);
-    }    
-    
-    
-    
-  
-    
-    @FXML
-    private void Ajouter_Colis(ActionEvent event) {
+        typetf.getItems().addAll(type);
+        lieudtf.getItems().addAll(gouvernorat);
+        lieuatf.getItems().addAll(gouvernorat);
+        ObservableList<Integer> list = FXCollections.observableArrayList();
+        list=CS.getidclient();
+        id_clienttf.setItems(list);      
         
-        try {
-            Colis c = new Colis();
-            c.setPoids(Float.parseFloat(poidsTF.getText()));
-            c.setType(typeTF.getValue());
-            c.setLdepart(lieudTF.getValue());
-            c.setLarrive(lieuaTF.getValue());
-            CS.ajouter(c);
-             showMessageDialog(null,"Colis Ajouté Avec Succès");
+   
+    }    
+
+    @FXML
+    private void AfficherAfeecterColis(ActionEvent event) {
+    }
+
+    @FXML
+    private void AfficherLivreur(ActionEvent event) {
+    }
+
+    @FXML
+    private void AjouterColis(ActionEvent event) {
+         try {
+             
+           
+            C.setId_client(id_clienttf.getValue());
+            C.setType(typetf.getValue());
+            C.setPoids(Float.parseFloat(poidstf.getText())); 
+            C.setPrix(C.getPoids()*3);
+            C.setLdepart(lieudtf.getValue());
+            C.setLarrive(lieuatf.getValue());
+            
+            
+            
+            
+            if(poidstf.getText().isEmpty())
+            {
+                
+                showMessageDialog(null, "Vérifier Vos Champs" ); 
+            }
+            else    
+            {
+                
+                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                 alert.setTitle("Confirmer Colis");
+                 alert.setHeaderText(null);
+                 alert.setContentText("Le Prix De Colis Est de "+C.getPrix()+" DT ");
+                 ButtonType cancelBtn = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+                 alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
+                 Optional<ButtonType> result = alert.showAndWait();
+                 
+                 if (result.isPresent() && result.get() == ButtonType.OK) {
+               
+                     CS.ajouter(C);
+                     showMessageDialog(null, "Colis Ajouté Avec Succès" );    
+            }
+                 else
+            {
+               showMessageDialog(null, " Ajout Annuler" );       
+            } 
+            }
+           
+            
+            
             
         }
         
         catch (SQLException ex) {
             System.out.println("Error" + ex.getMessage());
     }
+         
+       
+        
         
     }
 
-    
-    
-    
     @FXML
-    private void Afficher_Colis(ActionEvent event) {
+    private void AnnulerColis(ActionEvent event) {
         
-        try {
+         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherColis.fxml"));
             Parent root = (Parent)loader.load();
             AfficherColisController controller = (AfficherColisController)loader.getController();
             
-            typeTF.getScene().setRoot(root);
-            lieudTF.getScene().setRoot(root);
-            lieuaTF.getScene().setRoot(root);
-            poidsTF.getScene().setRoot(root);
+            typetf.getScene().setRoot(root);
+            lieudtf.getScene().setRoot(root);
+            lieuatf.getScene().setRoot(root);
+            poidstf.getScene().setRoot(root);
              }
          
          catch (IOException ex) {
             System.out.println("error" + ex.getMessage());
         }
         
-        
     }
-}
     
     
 
+    
+}

@@ -6,23 +6,23 @@
 package gui;
 
 import entities.Colis;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import services.ColisService;
-import entities.Colis;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import static javax.swing.JOptionPane.showMessageDialog;
+import services.ColisService;
 
 /**
  * FXML Controller class
@@ -32,95 +32,150 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class ModifierColisController implements Initializable {
 
     @FXML
-    private Label ajouter_modifier;
+    private ImageView logo;
     @FXML
-    private TextField poidsTF;
+    private TextField poidstf;
     @FXML
-    private ChoiceBox<String> typeTF;
+    private ChoiceBox<String> typetf;
     @FXML
-    private ChoiceBox<String> lieudTF;
+    private ChoiceBox<String> lieudtf;
     @FXML
-    private ChoiceBox<String> lieuaTF;
+    private ChoiceBox<String> lieuatf;
+    
+    String poids,lieud,lieua,type;
+    int id_user;
+     private String [] gouvernorat = {"Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Kef","Mahdia","Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan"};
+    
+    private String [] types = {"Agro-Alimentaire","Matériel Electronique","Meubles","Pièces Automobiles "};
+    
+    private static int id;
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private static int idd;
-    private String[] gouvernorat = {"Ariana", "Béja", "Ben Arous", "Bizerte", "Gabès", "Gafsa", "Jendouba", "Kairouan", "Kasserine", "Kébili", "Kef", "Mahdia", "Manouba", "Médenine", "Monastir", "Nabeul", "Sfax", "Sidi Bouzid", "Siliana", "Sousse", "Tataouine", "Tozeur", "Tunis", "Zaghouan"};
-
-    private String[] type = {"Agro-Alimentaire", "Matériel Electronique", "Meubles", "Pièces Automobiles Et Industrielles"};
+    Colis C = new Colis();  
+    Colis Col = new Colis();  
     ColisService CS = new ColisService();
-
-    @FXML
-    private TextField idcolis;
-    @FXML
-    private ImageView imagelogo;
-
-    /////////////////////////////////////////////////////   Initializes the controller class.  ////////////////////////////////////////////////////////
+    
+    
+  
+     /////////////////////////////////////////////////////////////////// GET ID LIVREUR FUNCTION //////////////////////////////////////////////////////////////
+    
+     public static int getIdd(Colis col) {
+        
+        id = col.getId();
+         System.out.println(id);
+   
+        return id;
+        
+    }
+    
     /**
-     * 
-     * 
+     * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+          typetf.getItems().addAll(types);
+        lieudtf.getItems().addAll(gouvernorat);
+        lieuatf.getItems().addAll(gouvernorat);
+        
+         Col=CS.TrouverById(id);
+         id_user=Col.getId_client();
+         poids=Double.toString(Col.getPoids());
+         type=Col.getType();
+         lieud=Col.getLdepart();
+         lieua=Col.getLarrive();
+         
+         
+         
+         poidstf.setText(poids);
+         typetf.setValue(type);
+         lieudtf.setValue(lieud);
+         lieuatf.setValue(lieua);
+         
+         
+    }    
 
-        Image Logoimage = new Image(getClass().getResourceAsStream("../img/LOGO.png"));
-        imagelogo.setImage(Logoimage);
-        typeTF.getItems().addAll(type);
-        lieudTF.getItems().addAll(gouvernorat);
-        lieuaTF.getItems().addAll(gouvernorat);
-
+    @FXML
+    private void AfficherAfeecterColis(ActionEvent event) {
     }
 
-    //////////////////////////////////////////////////////// AFFICHER COLIS ///////////////////////////////////////////////////////////////////
-    
     @FXML
-    private void Afficher_Colis(ActionEvent event) {
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherColis.fxml"));
-            Parent root = (Parent) loader.load();
-            AfficherColisController controller = (AfficherColisController) loader.getController();
-
-            typeTF.getScene().setRoot(root);
-            lieudTF.getScene().setRoot(root);
-            lieuaTF.getScene().setRoot(root);
-            poidsTF.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            System.out.println("error" + ex.getMessage());
-        }
-
+    private void AfficherLivreur(ActionEvent event) {
     }
 
-    /////////////////////////////////////////////////////////////// MODIFIER COLIS ///////////////////////////////////////////////////////////////// 
+    
+    
+    
+    
+    
     
     @FXML
-    private void Modifier_Colis(ActionEvent event) {
-
-        try {
-            Colis c = new Colis();
-            c.setId(idd);
-            c.setPoids(Float.parseFloat(poidsTF.getText()));
-            c.setType(typeTF.getValue());
-            c.setLdepart(lieudTF.getValue());
-            c.setLarrive(lieuaTF.getValue());
-            CS.modifier(c);
-            showMessageDialog(null, "Colis Modifier Avec Succès");
-        } catch (SQLException ex) {
+    private void ModifierColis(ActionEvent event) {
+        
+         try {
+           
+            C.setId(id);
+            C.setId_client(id_user);
+            C.setType(typetf.getValue());
+            C.setPoids(Float.parseFloat(poidstf.getText())); 
+            C.setPrix(C.getPoids()*3);
+            C.setLdepart(lieudtf.getValue());
+            C.setLarrive(lieuatf.getValue());
+            
+            
+            
+            
+            if(poidstf.getText().isEmpty())
+            {
+                
+                showMessageDialog(null, "Vérifier Vos Champs" ); 
+            }
+            else    
+            {
+                
+                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                 alert.setTitle("Confirmer Colis");
+                 alert.setHeaderText(null);
+                 alert.setContentText("Le Prix De Colis Est de "+C.getPrix()+" DT ");
+                 ButtonType cancelBtn = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+                 alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
+                 Optional<ButtonType> result = alert.showAndWait();
+                 
+                 if (result.isPresent() && result.get() == ButtonType.OK) {
+               
+                     CS.modifier(C);
+                     showMessageDialog(null, "Colis Modifier Avec Succès" );    
+            }
+                 else
+            {
+               showMessageDialog(null, " Modification Annuler" );       
+            } 
+            }
+            }
+            
+            
+         catch (SQLException ex) {
             System.out.println("Error" + ex.getMessage());
         }
-
-       
-    }
-
-     ///////////////////////////////////////////////////////////// RECUPERER ID //////////////////////////////////////////////////////////////////////////
-    
-    public static int getIdd(Colis c) {
+}
         
-        idd = c.getId();
-        return idd;
-    }
-    
     
 
+    @FXML
+    private void AnnulerColis(ActionEvent event) {
+        
+         try {
+         
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherColis.fxml"));
+            Parent root = (Parent)loader.load();
+            AfficherColisController controller = (AfficherColisController)loader.getController();
+            typetf.getScene().setRoot(root);
+             
+        
+        } catch (Exception e) {
+             System.out.println(e);
+                
+        }
+         
+    }
+    
 }

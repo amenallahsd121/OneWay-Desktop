@@ -28,7 +28,7 @@ public class Back extends Application {
         try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AfficherLivreur.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root , 1100 , 700);
+        Scene scene = new Scene(root , 1300 , 780);
         
         primaryStage.setTitle("Livreur");
         primaryStage.setScene(scene);

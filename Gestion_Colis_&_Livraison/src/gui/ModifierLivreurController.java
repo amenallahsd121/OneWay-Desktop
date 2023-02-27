@@ -44,7 +44,6 @@ public class ModifierLivreurController implements Initializable {
     private static int id;
     // LivreurService LSS = new LivreurService();
     Livreur liv = new Livreur();
-    
     LivreurService LS = new LivreurService();
     Livreur livreur = new Livreur();
     
@@ -85,9 +84,12 @@ public class ModifierLivreurController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        liv=LS.TrouverById(id);
         
-        System.out.println(id);
+         liv=LS.TrouverById(id);
+         cintf.setText(liv.getCin_livreur());
+         prenomtf.setText(liv.getPrenom());
+         nomtf.setText(liv.getNom());
+         vehiculetf.setText(liv.getVehicule());
    
       
     }    
@@ -178,13 +180,10 @@ public class ModifierLivreurController implements Initializable {
     
     
     void SetData () {
-        
-        
+ 
        // String cin;
       //  cin=liv.getCin_livreur();
-       // cintf.setPromptText(cin);
-        
-        
+       // cintf.setPromptText(cin);  
     }
     
     

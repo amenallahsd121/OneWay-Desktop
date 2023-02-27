@@ -5,6 +5,7 @@
  */
 package services;
 import entities.Colis;
+import entities.Livreur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.MyDB;
 
 /**
@@ -30,10 +35,8 @@ public class ColisService implements IServices<Colis> {
     @Override
     public void ajouter(Colis t) throws SQLException {
         
-        String req = "INSERT INTO colis (poids,type_colis,lieu_depart,lieu_arrive) VALUES("
-                + "'" + t.getPoids() + "','" + t.getType() + "','" + t.getLdepart() + "','" + t.getLarrive() + "'" + ")";
-        
-        
+        String req = "INSERT INTO colis (id_client,poids,prix,type_colis,lieu_depart,lieu_arrive) VALUES("
+                + "'" + t.getId_client()+ "','" + t.getPoids() + "','" + t.getPrix()+  "','" + t.getType() + "','" + t.getLdepart() + "','" + t.getLarrive() + "'" + ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
         
@@ -48,13 +51,15 @@ public class ColisService implements IServices<Colis> {
             
         boolean ok = false;
         try {
-            String req = " UPDATE colis SET poids = ? , type_colis = ? , lieu_depart = ? , lieu_arrive = ?    where id_colis = ?    ";
+            String req = " UPDATE colis SET id_client = ? , poids = ? , prix = ? , type_colis = ? , lieu_depart = ? , lieu_arrive = ?    where id_colis = ?    ";
             PreparedStatement ps = cnx.prepareStatement(req);
-        ps.setDouble(1, t.getPoids());
-        ps.setString(2, t.getType());
-        ps.setString(3, t.getLdepart());
-        ps.setString(4, t.getLarrive());
-        ps.setInt(5, t.getId());
+        ps.setInt(1, t.getId_client());
+        ps.setDouble(2, t.getPoids());
+        ps.setDouble(3, t.getPrix());
+        ps.setString(4, t.getType());
+        ps.setString(5, t.getLdepart());
+        ps.setString(6, t.getLarrive());
+        ps.setInt(7, t.getId());
         ps.executeUpdate();
         ok = true;
         
@@ -100,7 +105,9 @@ public class ColisService implements IServices<Colis> {
         while(rs.next()){
             Colis c = new Colis();
             c.setId(rs.getInt("id_colis"));
+            c.setId_client(rs.getInt("id_client"));
             c.setPoids(rs.getFloat("poids"));
+            c.setPrix(rs.getFloat("prix"));
             c.setType(rs.getString("type_colis"));
             c.setLdepart(rs.getString("lieu_depart"));
             c.setLarrive(rs.getString("lieu_arrive"));
@@ -116,7 +123,69 @@ public class ColisService implements IServices<Colis> {
     
     
     
+     public Colis TrouverById(int id) {
+        Colis C = null;
+        String Req = "select * from colis where id_colis = " + id + "";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet res = st.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               C = new Colis (res.getInt("id_colis"), res.getInt("id_client"), res.getFloat("poids"), res.getFloat("prix"), res.getString("type_colis"), res.getString("lieu_depart"), res.getString("lieu_arrive"));
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LivraisonService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return C;
+    }
     
+    
+     
+     public ObservableList<Integer> getidclient() {
+       
+        String Req = "select id from utilisateur ";
+                  
+      ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
+    }
+     
+     
+     
+     
+     
+     public String TrouvernameById(int id) {
+        String C = null;
+        String Req = "select name from utilisateur where id = " + id + "";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet res = st.executeQuery(Req); //recherche
+            while (res.next()) {
+
+             C=res.getString("name");
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LivraisonService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return C;
+    }
+     
     
     
 }
