@@ -15,35 +15,38 @@ import utils.MyDB;
  * @author hp
  */
 public class Test {
-     /*public static void main(String[] args) {
+     public static void main(String[] args) {
        
         try {
-            Reclamation R = new Reclamation(1,"amen" , " jai une reclation concernant ");
+            
+            ///////////////////////////////// RECLAMATION ///////////////////////////////////////////
+            
+            Reclamation R = new Reclamation(2,"amen" , " jai une reclation concernant ");
             ReclamationService Rs = new ReclamationService();
             //Rs.ajouter(R);
-            //Rs.modifier(R);
-            //Rs.supprimer(R);
-            
-            System.out.println(Rs.recuperer(R));
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }*/
-      public static void main(String[] args) {
-       
-        try {
-            Reponse R = new Reponse(3, " rahma doit repondre a votre reclamation ");
-            ReponseService Rs = new ReponseService();
-            //Rs.ajouter(R);
             Rs.modifier(R);
-            Rs.supprimer(R);
+            //Rs.supprimer(R);
+           // System.out.println(Rs.recuperer(R));
             
-            System.out.println(Rs.recuperer(R));
+            ////////////////////////////////////////// REPONSE //////////////////////////////////////
+            
+             //Reponse Rp = new Reponse(3, " rahma doit repondre a votre reclamation ");
+            //ReponseService Rps = new ReponseService();
+            //Rps.ajouter(Rp);
+           // Rps.modifier(Rp);
+           // Rps.supprimer(Rp);
+            
+           // System.out.println(Rps.recuperer(Rp));
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
+     
+       
+       
+    }
     
-}
+
 
 

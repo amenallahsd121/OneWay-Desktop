@@ -54,16 +54,26 @@ Connection cnx;
     }
 
     @Override
-    public void supprimer(Reclamation t) throws SQLException {
+    public boolean supprimer(Reclamation t) throws SQLException {
+        boolean ok = false;
+        try {
          String req = " DELETE FROM reclamation where id_reclamation = ?   ";
          
             PreparedStatement vs = cnx.prepareStatement(req);
              vs.setInt(1, t.getId_rec());
             vs.executeUpdate();
+            ok= true;
+        }
+        catch ( SQLException ex){
+            System.out.println("error in delete"+ex);
+        
+           
+        }
+        return ok;
     }
 
     @Override
-    public List<Reclamation> recuperer(Reclamation t) throws SQLException {
+    public List<Reclamation> recuperer() throws SQLException {
           List<Reclamation> Reclamation = new ArrayList<>();
         String s = "select * from reclamation ";
         Statement st = cnx.createStatement();

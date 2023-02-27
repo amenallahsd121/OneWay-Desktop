@@ -29,8 +29,8 @@ Connection cnx;
     }
     @Override
     public void ajouter(Reponse t) throws SQLException {
-          String req = "INSERT INTO reponse (text_rep) VALUES("
-                + "'" + t.getText_rep() + "'"  +  ")";
+          String req = "INSERT INTO reponse (id_raclamation,text_rep) VALUES("
+                + "'" + t.getId_rec() + "','" + t.getText_rep() +  "'"  +  ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
@@ -46,16 +46,26 @@ Connection cnx;
     }
 
     @Override
-    public void supprimer(Reponse t) throws SQLException {
-       String req = " DELETE FROM reponse where id_reponse = ?   ";
+    public boolean supprimer(Reponse t) throws SQLException {
+        boolean ok = false;
+        try {
+        String req = " DELETE FROM reponse where id_reponse = ?   ";
          
             PreparedStatement vs = cnx.prepareStatement(req);
              vs.setInt(1, t.getId_rep());
             vs.executeUpdate();
+            ok= true;
+        }
+        catch ( SQLException ex){
+            System.out.println("error in delete"+ex);
+        
+           
+        }
+        return ok;
     }
 
     @Override
-    public List<Reponse> recuperer(Reponse t) throws SQLException {
+    public List<Reponse> recuperer() throws SQLException {
           List<Reponse> Reponse = new ArrayList<>();
         String s = "select * from reponse ";
         Statement st = cnx.createStatement();
@@ -64,7 +74,7 @@ Connection cnx;
             Reponse R = new Reponse();
             
             R.setId_rep(rs.getInt("id_Reponse"));
-           // R.setSujet(rs.getString("sujet"));
+            R.setId_rec(rs.getInt("id_raclamation"));
             R.setText_rep(rs.getString("text_rep"));
             
             
