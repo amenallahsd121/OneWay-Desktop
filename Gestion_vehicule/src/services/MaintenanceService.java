@@ -26,8 +26,14 @@ public class MaintenanceService implements IService<Maintenance> {
     }
      @Override
     public void ajouter(Maintenance t) throws SQLException {
-        String req = "INSERT INTO maintenance(etat,nom_sos_rep) VALUES("
+       /* String req = "INSERT INTO maintenance(etat,nom_sos_rep) VALUES("
                 + "'" + t.getEtat()+ "','" + t.getNom_sos_rep()+ "'" + ")";
+        Statement st = cnx.createStatement();
+        st.executeUpdate(req);*/
+       
+       String req = "INSERT INTO maintenance(etat,nom_sos_rep,id_vehicule) VALUES("
+                + "'" + t.getEtat()+ "','" + t.getNom_sos_rep()+ "','" +t.getId_vehicule() + "'" +")";
+          
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
@@ -43,24 +49,30 @@ public class MaintenanceService implements IService<Maintenance> {
     }
     
     @Override
-    public void supprimer(Maintenance t) throws SQLException {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     
-       /*String req = " DELETE from vehicule where id_vehicule = '?'   ";
-            PreparedStatement vs = cnx.prepareStatement(req);
-            vs.executeUpdate();*/
-       
+    public boolean supprimer(Maintenance t) throws SQLException {
+       boolean ok = false;
+       try {
        String req = " DELETE FROM maintenance where id_maintenance = ?   ";
          
             PreparedStatement vm = cnx.prepareStatement(req);
             vm.setInt(1, t.getId_maintenance());
             vm.executeUpdate();
+            ok= true;
+            }
+        catch ( SQLException ex){
+            System.out.println("error in delete"+ex);
+       
+           
+        }
+        return ok;
             
             
     }
     
+    
+    
     @Override
-    public List<Maintenance> recuperer(Maintenance t) throws SQLException {
+    public List<Maintenance> recuperer() throws SQLException {
         List<Maintenance> maintenance = new ArrayList<>();
         String s = "select * from maintenance";
         Statement st = cnx.createStatement();

@@ -1,16 +1,17 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+//package test;
 
 /**
  *
  * @author Houda
  */
-//////////////////////////////////////////////
-import entities.Maintenance;
+
+/*import entities.Maintenance;
 import entities.Vehicule;
 import entities.Categorie;
 import java.sql.SQLException;
@@ -30,7 +31,7 @@ public class Test {
             VehiculeService vs = new VehiculeService();
            vs.ajouter(v);
            vs.modifier(v);
-           vs.supprimer(v3);
+           //vs.supprimer(v3);
             System.out.println(vs.recuperer(v));
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -40,9 +41,9 @@ public class Test {
            Maintenance m = new Maintenance( 4,"réparee", "aaaaa auto ");
            //Maintenance m3 = new Maintenance( 1,"accidenté", "aaaa");
            MaintenanceService ms = new MaintenanceService();
-           //ms.ajouter(m);
-           //ms.modifier(m);
-           ms.supprimer(m);
+           ms.ajouter(m);
+           ms.modifier(m);
+           //ms.supprimer(m);
             System.out.println(ms.recuperer(m));
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -51,9 +52,9 @@ public class Test {
        try {
            Categorie c = new Categorie( 3,"voiture xx");
            CategorieService vc = new CategorieService();
-           //vc.ajouter(c);
-           //vc.modifier(c);
-           vc.supprimer(c);
+           vc.ajouter(c);
+           vc.modifier(c);
+           //vc.supprimer(c);
             System.out.println(vc.recuperer(c));
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -63,3 +64,4 @@ public class Test {
     
     
 }
+*/

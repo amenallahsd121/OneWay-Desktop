@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Ajouter_categorieController">
+   <children>
+      <Label layoutX="162.0" layoutY="36.0" text="Ajouter Catégories" textFill="#171515">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="175.0" text="Type " textFill="#252323">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="350.0" layoutY="298.0" mnemonicParsing="false" onAction="#ajoutercategorie" style="-fx-background-color: #26c4ec;" text="Ajouter " />
+      <Button layoutX="437.0" layoutY="298.0" mnemonicParsing="false" onAction="#affichercategorie" style="-fx-background-color: #E1AD01;" text="Afficher" />
+      <TextField fx:id="typetf" layoutX="144.0" layoutY="175.0" />
+      <Button fx:id="retour_btn" layoutX="24.0" layoutY="36.0" mnemonicParsing="false" onAction="#retournerHome" style="-fx-background-color: #FF6961;" text="Retour" />
+   </children>
+</AnchorPane>

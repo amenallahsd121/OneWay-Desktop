@@ -28,8 +28,12 @@ public class VehiculeService implements IService <Vehicule> {
     
     @Override
     public void ajouter(Vehicule t) throws SQLException {
-        String req = "INSERT INTO vehicule(matricule,marque) VALUES("
+        /*String req = "INSERT INTO vehicule(matricule,marque) VALUES("
                 + "'" + t.getMatricule()+ "','" + t.getMarque()+ "'" + ")";
+        Statement st = cnx.createStatement();
+        st.executeUpdate(req);*/
+        String req = "INSERT INTO vehicule(matricule,marque,id_categorie) VALUES("
+                + "'" + t.getMatricule()+ "','" + t.getMarque()+ "','" + t.getId_categorie() + "'"  + ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
@@ -46,25 +50,29 @@ public class VehiculeService implements IService <Vehicule> {
     }
 
     @Override
-    public void supprimer(Vehicule t) throws SQLException {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     
-       /*String req = " DELETE from vehicule where id_vehicule = '?'   ";
-            PreparedStatement vs = cnx.prepareStatement(req);
-            vs.executeUpdate();*/
-       
+    public boolean supprimer(Vehicule t) throws SQLException {
+       boolean ok = false;
+        try {
        String req = " DELETE FROM vehicule where id_vehicule = ?   ";
          
             PreparedStatement vs = cnx.prepareStatement(req);
              vs.setInt(1, t.getId_vehicule());
             vs.executeUpdate();
+             ok= true;
+        }
+        catch ( SQLException ex){
+            System.out.println("error in delete"+ex);
+       
+           
+        }
+        return ok;
             
             
     }
 
 
     @Override
-    public List<Vehicule> recuperer(Vehicule t) throws SQLException {
+    public List<Vehicule> recuperer() throws SQLException {
         List<Vehicule> vehicule = new ArrayList<>();
         String s = "select * from vehicule";
         Statement st = cnx.createStatement();
@@ -74,6 +82,8 @@ public class VehiculeService implements IService <Vehicule> {
             v.setMatricule(rs.getString("matricule"));
             v.setMarque(rs.getString("marque"));
             v.setId_vehicule(rs.getInt("id_vehicule"));
+            v.setId_categorie(rs.getInt("id_categorie"));
+
             
             
             vehicule.add(v);

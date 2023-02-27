@@ -46,24 +46,31 @@ public class CategorieService implements IService<Categorie> {
     }
     
     @Override
-    public void supprimer(Categorie t) throws SQLException {
+    public boolean supprimer(Categorie t) throws SQLException {
+        boolean ok = false;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      
-       /*String req = " DELETE from vehicule where id_vehicule = '?'   ";
-            PreparedStatement vs = cnx.prepareStatement(req);
-            vs.executeUpdate();*/
        
+       try {
        String req = " DELETE FROM categorie where id_categorie = ?   ";
          
             PreparedStatement vc = cnx.prepareStatement(req);
             vc.setInt(1, t.getId_categorie());
             vc.executeUpdate();
+            ok= true;
+            }
+        catch ( SQLException ex){
+            System.out.println("error in delete"+ex);
+       
+           
+        }
+        return ok;
             
-            
+          
     }
     
     @Override
-    public List<Categorie> recuperer(Categorie t) throws SQLException {
+    public List<Categorie> recuperer( ) throws SQLException {
         List<Categorie> categorie = new ArrayList<>();
         String s = "select * from categorie";
         Statement st = cnx.createStatement();
