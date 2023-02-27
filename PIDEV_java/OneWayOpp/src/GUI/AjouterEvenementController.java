@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import static javax.swing.JOptionPane.showMessageDialog;
 import services.EvenementService;
 
 /**
@@ -69,7 +70,7 @@ public class AjouterEvenementController implements Initializable {
     @FXML
     private void ajouterEvenement(ActionEvent event) {
         
-
+ try {
           LocalDate date_debut,date_fin;
           date_debut = mydatedebut.getValue();
           date_fin = mydatefin.getValue();
@@ -79,10 +80,28 @@ public class AjouterEvenementController implements Initializable {
           e.setDate_fin(date_fin.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
           e.setAwards(awards.getText());
           e.setDescription(description.getText());
+          if(nom.getText().isEmpty()   || awards.getText().isEmpty() || description.getText().isEmpty() || e.getDate_debut().isEmpty() || e.getDate_fin()==null)
+            {
+                
+                //showMessageDialog(null, "Vérifier Vos Champs" ); 
+                Alert alert = new Alert(AlertType.ERROR);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("Vérifier Vos Champs");
+
+              alert.show();
+            }
+          
+          else
+          {
+              
           
           
-           try {
                es.ajouter(e);
+               //showMessageDialog(null, "Evenement Ajouté Avec Succès" );  
                Alert alert = new Alert(AlertType.INFORMATION);
 
               alert.setTitle("Information Dialog");
@@ -93,11 +112,12 @@ public class AjouterEvenementController implements Initializable {
 
               alert.show();
                reset();
-               
+          }
            } catch (SQLException ex) {
                 
             System.out.println(ex.getMessage());
       }
+          
     }
      private void reset() {
          

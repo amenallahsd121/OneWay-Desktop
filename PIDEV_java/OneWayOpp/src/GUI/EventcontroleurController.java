@@ -32,6 +32,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.InputMethodEvent;
 import services.EvenementService;
 import services.ParticipationService;
 
@@ -181,6 +182,7 @@ public class EventcontroleurController implements Initializable {
                Parent loader = FXMLLoader.load(getClass().getResource("AfficherParticipation.fxml"));
            id_label.getScene().setRoot(loader);
         } catch (SQLException ex) {
+            
             System.out.println(ex.getMessage());
         }
                
@@ -188,6 +190,10 @@ public class EventcontroleurController implements Initializable {
        
         
     
+    }
+
+    @FXML
+    private void annulerParticipation(InputMethodEvent event) {
     }
     
 }

@@ -12,7 +12,7 @@
       <Label fx:id="arrivelabel" layoutX="73.0" layoutY="40.0" prefHeight="50.0" text="Label" />
       <Label fx:id="descriptionlabel" layoutX="20.0" layoutY="138.0" text="Label" />
       <Button fx:id="supprimeropbtn" layoutX="196.0" layoutY="96.0" mnemonicParsing="false" onAction="#supprimerOp" prefHeight="26.0" prefWidth="86.0" style="-fx-background-color: #FF0000;" text="Supprimer" />
-      <Button fx:id="modifierOpbtn" layoutX="196.0" layoutY="121.0" mnemonicParsing="false" onAction="#modifierOp" prefHeight="26.0" prefWidth="85.0" text="Modifer" />
+      <Button fx:id="modifierOpbtn" layoutX="196.0" layoutY="121.0" mnemonicParsing="false" onAction="#modifierOp" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #D4DCCD;" text="Modifer" />
       <Label layoutX="15.0" layoutY="23.0" text="depart:">
          <font>
             <Font name="Arial Black" size="12.0" />

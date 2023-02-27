@@ -201,7 +201,7 @@ public class AjouterOpController implements Initializable {
     @FXML
     private void check1(javafx.scene.input.KeyEvent event) {
         
-        if(event.getCharacter().matches("[^\\e\t\r\\d+0 .__ ]")){
+        if(event.getCharacter().matches("[^\\e\t\r\\d+0 .$\\d\\d ]")){
             event.consume();
             heurdep.setStyle("fx-border-color: red");
         }
@@ -213,7 +213,9 @@ public class AjouterOpController implements Initializable {
     @FXML
     private void check2(javafx.scene.input.KeyEvent event) {
     
-       if(event.getCharacter().matches("[^\\e\t\r\\d+0 . \\d{2}$ ]")){
+      //if(event.getCharacter().matches("[^[0-9]{2}\\.[0-9]{2}$]")){
+    //  if (event.getCharacter().matches("^[0-9]{2}\\.[0-9]{2}$")) {
+      if(event.getCharacter().matches("[^\\e\t\r\\d+0 .$\\d\\d ]")){
             event.consume();
         }
 
