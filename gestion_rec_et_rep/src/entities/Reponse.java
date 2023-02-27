@@ -10,14 +10,20 @@ package entities;
  * @author hp
  */
 public class Reponse {
-    int id_rep,id_rec;
+    int id_rep,id_rec,id_user;
     String text_rep;
-
+    
     public Reponse() {
     }
 
-    public Reponse(int id_rep, int id_rec, String text_rep) {
+    public Reponse(int id_rep, int id_rec,int id_user, String text_rep) {
+        this.id_user=id_user;
         this.id_rep = id_rep;
+        this.id_rec = id_rec;
+        this.text_rep = text_rep;
+    }
+     public Reponse( int id_rec,int id_user, String text_rep) {
+        this.id_user=id_user;
         this.id_rec = id_rec;
         this.text_rep = text_rep;
     }
@@ -46,11 +52,20 @@ public class Reponse {
         this.text_rep = text_rep;
     }
 
-    @Override
-    public String toString() {
-        return "Reponse{" + "id_rep=" + id_rep + ", id_rec=" + id_rec + ", text_rep=" + text_rep + '}';
+    public int getId_user() {
+        return id_user;
     }
 
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    @Override
+    public String toString() {
+        return "Reponse{" + "id_rep=" + id_rep + ", id_rec=" + id_rec + ", id_user=" + id_user + ", text_rep=" + text_rep + '}';
+    }
+
+   
     
     
     

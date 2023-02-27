@@ -32,7 +32,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import gui.Afficher_reclamationController;
+import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import services.ReponseService;
 
 
@@ -57,8 +60,10 @@ public class REPController implements Initializable {
     private Label IDlabel;
     @FXML
     private Label ID_reclabel;
+    @FXML
+    private Label labelUser;
     
-   
+   Reponse r =new Reponse();
    
     /**
      * Initializes the controller class.
@@ -75,32 +80,46 @@ public class REPController implements Initializable {
      ID_reclabel.setText(String.valueOf(Rp.getId_rec()));
     
        IDlabel.setText(String.valueOf(Rp.getId_rep()));
-    
+        labelUser.setText(String.valueOf(Rp.getId_user()));
+        r=Rp;
     }    
 
    
     
     
         
-    
+
 
     @FXML
-    private void supprimerreponse(ActionEvent event) throws IOException {
+    private void supprimerreponse(ActionEvent event) throws IOException, SQLException {
         Reponse Rp =new Reponse();
     Rp.setId_rep(Integer.parseInt(IDlabel.getText()));
         try {
-            RS.supprimer(Rp);
-              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            
 
-              alert.setTitle("Information Dialog");
+
+
+      Alert alert = new Alert(Alert.AlertType.WARNING);
+
+              alert.setTitle("confirmation Dialog");
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Reponse supprimer avec succés!");
-
-              alert.show();
-            Parent loader = FXMLLoader.load(getClass().getResource("Afficher_reponse.fxml"));
-            Textlabel.getScene().setRoot(loader);
+              alert.setContentText("Voulez vous supprimer cet Reponse!");
+              ButtonType cancelBtn = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+             alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
+              Optional<ButtonType> result = alert.showAndWait();
+           
+           if (result.isPresent() && result.get() == ButtonType.OK) {
+    // User clicked OK 
+           RS.supprimer(Rp);
+} else {
+    // User clicked cancel or closed the dialog
+               System.out.println("Suppression Annuler");
+           }
+           Parent loader = FXMLLoader.load(getClass().getResource("Afficher_reponse.fxml"));
+           Textlabel.getScene().setRoot(loader);
+           
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -112,9 +131,11 @@ public class REPController implements Initializable {
 
     @FXML
     private void modifierreponse(ActionEvent event) throws IOException {
-                Reponse Rp =new Reponse();
-    Rp.setId_rep(Integer.parseInt(IDlabel.getText()));
+                
+    // Rp.setId_rep(Integer.parseInt(IDlabel.getText()));
     Parent loader = FXMLLoader.load(getClass().getResource("Ajouter_reponse.fxml"));
+             // Ajouter_reclamationController.getid(r.getId_rec());
+           Ajouter_reponseController.getid(r.getId_rep());
     
             Textlabel.getScene().setRoot(loader);
         

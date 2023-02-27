@@ -12,6 +12,8 @@ import services.ReponseService;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import static javafx.scene.input.KeyCode.R;
@@ -31,22 +34,32 @@ import static javafx.scene.input.KeyCode.R;
  */
 public class Ajouter_reponseController implements Initializable {
 
-    @FXML
-    private TextField id_reclamationtf;
+    //private TextField id_reclamationtf;
     @FXML
     private TextField text_reponsetf;
 
+     @FXML
+    private ComboBox<Integer> id_reclamation;
+    @FXML
+    private ComboBox<Integer> id_client;
+    
     /**
      * Initializes the controller class.
      */
     
     ReponseService RS = new ReponseService();
     Reponse Rp = new Reponse();
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+        ObservableList<Integer> list = FXCollections.observableArrayList();
+        list = RS.getidclient();
+        id_client.setItems(list);
+        ObservableList<Integer> l = FXCollections.observableArrayList();
+        l= RS.getidRec();
+        id_reclamation.setItems(l);
+    }
     @FXML
     private void afficher(ActionEvent event) {
         
@@ -73,7 +86,8 @@ public class Ajouter_reponseController implements Initializable {
            if (controleDeSaisie()) {        /////////////// declaration controle se saisie //////////////////////////
 
            Rp.setText_rep(text_reponsetf.getText());
-           Rp.setId_rec(Integer.parseInt(id_reclamationtf.getText()));
+           Rp.setId_user(id_client.getValue());
+           Rp.setId_rec(id_reclamation.getValue());
            
             RS.ajouter(Rp);
             System.out.println("Reponse  Ajouté Avec Succès");
@@ -105,14 +119,54 @@ public class Ajouter_reponseController implements Initializable {
     
     
     private boolean controleDeSaisie() {
-        if (text_reponsetf.getText().length()<10)
+        if (text_reponsetf.getText().length()<3)
             return false;
-        /*if (marquetf.getText().length()<3)
-            return false;*/
+       
         return true;
     }
+    private static int idd;
+    public static int getid(int id){
+        idd=id;
+        return idd;
+    }
+
+    @FXML
+    private void Modifier(ActionEvent event) {
+     //    ReponseService RS = new ReponseService();
+    Reponse e = new Reponse();
+          e.setId_rep(idd);
+          e.setId_rec(id_reclamation.getValue());
+          e.setId_user(id_client.getValue());
+         e.setText_rep(text_reponsetf.getText());
+    //     id.setText(String.valueOf(idd)); 
+         
+        
+          
+   
+          
+           try {
+               
+               RS.modifier(e);
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("Evenement Modifier avec succés!");
+
+              alert.show();
+            
+               
+           } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+      }
+        
+        
+    }
+    }
     
-}
+
 
     
 

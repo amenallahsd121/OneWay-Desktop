@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.MyDB;
 
 /**
@@ -29,19 +31,21 @@ Connection cnx;
     }
     @Override
     public void ajouter(Reponse t) throws SQLException {
-          String req = "INSERT INTO reponse (id_raclamation,text_rep) VALUES("
-                + "'" + t.getId_rec() + "','" + t.getText_rep() +  "'"  +  ")";
+          String req = "INSERT INTO reponse (id_raclamation,id_user,text_rep) VALUES("
+                + "'" + t.getId_rec() + "','" + t.getId_user()  + "','" +  t.getText_rep() +  "'"  +  ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
 
     @Override
     public void modifier(Reponse t) throws SQLException {
-        String req = "UPDATE reponse SET text_rep = ? where id_reponse = ?";
+        String req = "UPDATE reponse SET text_rep = ? , id_user=? where id_reponse = ?";
         PreparedStatement vs = cnx.prepareStatement(req);
         vs.setString(1, t.getText_rep());
         //vs.setString(2, t.getSujet());
-        vs.setInt(2, t.getId_rep());
+      
+        vs.setInt(2, t.getId_user());
+          vs.setInt(3, t.getId_rep());
         vs.executeUpdate();
     }
 
@@ -75,6 +79,7 @@ Connection cnx;
             
             R.setId_rep(rs.getInt("id_Reponse"));
             R.setId_rec(rs.getInt("id_raclamation"));
+            R.setId_user(rs.getInt("id_user"));
             R.setText_rep(rs.getString("text_rep"));
             
             
@@ -84,6 +89,47 @@ Connection cnx;
         }
         return Reponse;
     
+    }
+    
+    public ObservableList<Integer> getidclient() {
+       
+        String Req = "select id from utilisateur ";
+                  
+      ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
+    }
+    public ObservableList<Integer> getidRec() {
+       
+        String Req = "select id_reclamation from reclamation ";
+                  
+      ObservableList<Integer> l = FXCollections.observableArrayList();
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+                l.add(res.getInt(1));
+                
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return l;
     }
     
 }

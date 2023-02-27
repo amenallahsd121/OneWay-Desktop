@@ -72,8 +72,10 @@ public class Afficher_reponseController implements Initializable {
     private void retournerHome(ActionEvent reponse) {
         try {
 
-            Parent loader = FXMLLoader.load(getClass().getResource("Ajouter_reponse.fxml"));
-           gridpane.getScene().setRoot(loader);
+         //   Parent loader = FXMLLoader.load(getClass().getResource("ajouter_reponse.fxml"));
+              Parent loader = FXMLLoader.load(getClass().getResource("Ajouter_reponse.fxml"));
+
+         gridpane.getScene().setRoot(loader);
        
         } catch (IOException ex) {
             System.out.println(ex.getMessage());        }

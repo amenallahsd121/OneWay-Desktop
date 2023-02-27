@@ -31,7 +31,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import gui.Afficher_reclamationController;
+import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import services.ReclamationService;
 
 
@@ -95,16 +98,26 @@ public void setReclamation(Reclamation  c) {
         Reclamation c =new Reclamation();
     c.setId_rec(Integer.parseInt(IDlabel.getText()));
         try {
-            Rs.supprimer(c);
-              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+             Alert alert = new Alert(Alert.AlertType.WARNING);
 
-              alert.setTitle("Information Dialog");
+              alert.setTitle("confirmation Dialog");
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Reclamation supprimer avec succés!");
-
-              alert.show();
+              alert.setContentText("Voulez vous supprimer cet Reclamation !");
+              ButtonType cancelBtn = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+             alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
+              Optional<ButtonType> result = alert.showAndWait();
+           
+           if (result.isPresent() && result.get() == ButtonType.OK) {
+    // User clicked OK 
+                        Rs.supprimer(c);
+           } else {
+    // User clicked cancel or closed the dialog
+               System.out.println("Suppression Annuler");
+           }
+           
+           
             Parent loader = FXMLLoader.load(getClass().getResource("Afficher_reclamation.fxml"));
             Textlabel.getScene().setRoot(loader);
             
