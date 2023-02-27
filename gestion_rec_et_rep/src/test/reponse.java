@@ -25,7 +25,7 @@ public class reponse extends Application {
     @Override
     public void start(Stage primaryStage) {
                try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/Ajouter_reponse.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ajouter_reponse.fxml"));
         Parent root1 = loader.load();
         Scene scene1 = new Scene(root1 , 1100 , 700);
        

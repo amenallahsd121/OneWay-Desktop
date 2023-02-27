@@ -92,6 +92,26 @@ Connection cnx;
         }
         return Reclamation;
     }
+    
+    public Reclamation recherche(int id) {
+        Reclamation P = null;
+        String Req = "select * from reclamation where id_reclamation= " + id + "";
+                  
+   
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               P= new Reclamation(res.getInt(1), res.getString(2), res.getString(3));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return P;
+    }
     }
     
 

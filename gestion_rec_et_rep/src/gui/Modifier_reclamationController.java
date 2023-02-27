@@ -38,6 +38,8 @@ public class Modifier_reclamationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        
     }    
 
     @FXML
@@ -46,8 +48,8 @@ public class Modifier_reclamationController implements Initializable {
         try {
             Reclamation r = new Reclamation();
            
-            r.setId_rec(Integer.parseInt(IDFtf.getText()));
-           
+           // r.setId_rec(Integer.parseInt(IDFtf.getText()));
+            //r.setId_rec(idd);
             r.setSujet(sujettf.getText());
             r.setText_rec(texttf.getText());
             

@@ -24,8 +24,9 @@
          </font>
       </Label>
       <TextField fx:id="sujettf" layoutX="109.0" layoutY="119.0" prefHeight="25.0" prefWidth="319.0" />
-      <Button layoutX="442.0" layoutY="290.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #26c4ec;" text="Ajouter" />
-      <Button layoutX="519.0" layoutY="290.0" mnemonicParsing="false" onAction="#afficher" style="-fx-background-color: #E1AD01;" text="Afficher" />
+      <Button layoutX="436.0" layoutY="337.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #26c4ec;" text="Ajouter" />
+      <Button layoutX="504.0" layoutY="337.0" mnemonicParsing="false" onAction="#afficher" style="-fx-background-color: #E1AD01;" text="Afficher" />
       <TextField fx:id="texttf" layoutX="109.0" layoutY="196.0" prefHeight="128.0" prefWidth="319.0" />
+      <Button fx:id="modifiebtnn" layoutX="357.0" layoutY="337.0" mnemonicParsing="false" onAction="#modifierRec" style="-fx-background-color: #26c4eb;" text="Modifier" />
    </children>
 </AnchorPane>

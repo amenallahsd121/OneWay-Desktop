@@ -60,6 +60,7 @@ public class RecController implements Initializable {
     @FXML
     private Label IDlabel;
     ReclamationService Rs = new ReclamationService();
+    Reclamation r = new Reclamation();
 
     /**
      * Initializes the controller class.
@@ -73,15 +74,16 @@ public void setReclamation(Reclamation  c) {
        Textlabel.setText(c.getText_rec());
        Sujetlabel.setText(c.getSujet());
        IDlabel.setText(String.valueOf(c.getId_rec()));
+       r=c;
     
     }    
 
     @FXML
     private void Modifierreclamation(ActionEvent event) throws IOException {
                 Reclamation c =new Reclamation();
-    c.setId_rec(Integer.parseInt(IDlabel.getText()));
+  //  c.setId_rec(Integer.parseInt(IDlabel.getText()));
     Parent loader = FXMLLoader.load(getClass().getResource("Ajouter_reclamation.fxml"));
-    
+          Ajouter_reclamationController.getid(r.getId_rec());
             Textlabel.getScene().setRoot(loader);
         
     }
@@ -112,12 +114,12 @@ public void setReclamation(Reclamation  c) {
 
     }
 
-    public void set(Reponse get) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setreponse(Reponse get) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public void set(Reponse get) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    public void setreponse(Reponse get) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
 }

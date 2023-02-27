@@ -9,11 +9,6 @@
    <children>
       <Button fx:id="modifierbtn" layoutX="23.0" layoutY="121.0" mnemonicParsing="false" onAction="#Modifierreclamation" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #E1AD01;" text="Modifier" />
       <Button fx:id="supprimerbtn" layoutX="23.0" layoutY="96.0" mnemonicParsing="false" onAction="#supprimerreclamation" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #FF0000;" text="supprimer" textFill="#1b1a1a" />
-      <Label layoutX="134.0" layoutY="55.0" text="ID">
-         <font>
-            <Font name="Arial Black" size="12.0" />
-         </font>
-      </Label>
       <Label layoutX="133.0" layoutY="86.0" text="Texte ">
          <font>
             <Font name="Arial Black" size="12.0" />

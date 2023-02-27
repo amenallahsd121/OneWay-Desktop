@@ -18,6 +18,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import services.ReclamationService;
 /**
  * FXML Controller class
@@ -31,12 +33,15 @@ public class Ajouter_reclamationController implements Initializable {
     @FXML
     private TextField texttf;
 ReclamationService Rs = new ReclamationService();
+    @FXML
+    private Button modifiebtnn;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Rs.recherche(idd);
     }    
 
     @FXML
@@ -45,7 +50,7 @@ ReclamationService Rs = new ReclamationService();
        
        if (controleDeSaisie()) {     /////////////// declaration controle se saisie /////////////////////////////
            Reclamation R = new Reclamation();
-
+           //  R.setId_rec(idd);
            R.setText_rec(texttf.getText());
            R.setSujet(sujettf.getText());
           
@@ -84,12 +89,15 @@ ReclamationService Rs = new ReclamationService();
     @FXML
     private void afficher(ActionEvent event) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("afficher_reclamation.fxml"));
-            Parent root = (Parent)loader.load();
-            Afficher_reclamationController controller = (Afficher_reclamationController)loader.getController();
-           
-            sujettf.getScene().setRoot(root);
-            texttf.getScene().setRoot(root);
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("afficher_reclamation.fxml"));
+//            Parent root = (Parent)loader.load();
+//            Afficher_reclamationController controller = (Afficher_reclamationController)loader.getController();
+//           
+//            sujettf.getScene().setRoot(root);
+//            texttf.getScene().setRoot(root);
+
+        Parent loader = FXMLLoader.load(getClass().getResource("afficher_reclamation.fxml"));
+        texttf.getScene().setRoot(loader);
             
            
              }
@@ -97,6 +105,11 @@ ReclamationService Rs = new ReclamationService();
          catch (IOException ex) {
             System.out.println("error" + ex.getMessage());
         }
+    }
+    private static int idd;
+    public static int getid(int id){
+        idd=id;
+        return idd;
     }
     
     
@@ -106,6 +119,44 @@ ReclamationService Rs = new ReclamationService();
         if (texttf.getText().length()<3)
             return false;
         return true;
+    }
+
+    @FXML
+    private void modifierRec(ActionEvent event) {
+        
+        
+        
+       
+          Reclamation e = new Reclamation();
+          e.setId_rec(idd);
+          e.setSujet(sujettf.getText());
+          e.setText_rec(texttf.getText());
+         
+    //     id.setText(String.valueOf(idd)); 
+         
+        
+          
+   
+          
+           try {
+               
+               Rs.modifier(e);
+               Alert alert = new Alert(AlertType.INFORMATION);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("Evenement Modifier avec succés!");
+
+              alert.show();
+            
+               
+           } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+      }
+        
+        
     }
     
 }

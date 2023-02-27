@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/Afficher_reponse.fxml</file>
             <file>file:/C:/ESSAI/gestion_rec_et_rep/src/services/ReponseService.java</file>
-            <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/REP.fxml</file>
+            <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/Ajouter_reclamationController.java</file>
+            <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/Ajouter_reponseController.java</file>
             <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/REPController.java</file>
             <file>file:/C:/ESSAI/gestion_rec_et_rep/src/gui/Afficher_reponseController.java</file>
         </group>
