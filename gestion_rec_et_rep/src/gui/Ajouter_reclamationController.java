@@ -147,7 +147,7 @@ ReclamationService Rs = new ReclamationService();
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Evenement Modifier avec succés!");
+              alert.setContentText("Reclamation Modifier avec succés!");
 
               alert.show();
             

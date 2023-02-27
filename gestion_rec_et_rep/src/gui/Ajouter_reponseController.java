@@ -153,7 +153,7 @@ public class Ajouter_reponseController implements Initializable {
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Evenement Modifier avec succés!");
+              alert.setContentText("Reponse Modifier avec succés!");
 
               alert.show();
             
