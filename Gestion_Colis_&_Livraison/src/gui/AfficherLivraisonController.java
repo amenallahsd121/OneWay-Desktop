@@ -20,7 +20,16 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.Parent;
+import static javax.swing.JOptionPane.showMessageDialog;
 import services.LivraisonService;
+import services.ColisService;
+import entities.Colis;
+
+
 
 /**
  * FXML Controller class
@@ -34,6 +43,10 @@ public class AfficherLivraisonController implements Initializable {
 
      private List<Livraison> livraison = new VirtualFlow.ArrayLinkedList<>();
     LivraisonService LS = new LivraisonService();
+    
+    
+//     private List<Colis> colis = new VirtualFlow.ArrayLinkedList<>();
+//     ColisService CS = new ColisService();
     
     
     @FXML
@@ -56,6 +69,11 @@ public class AfficherLivraisonController implements Initializable {
         }
  
         this.AFFICHERLESLIVRAISONS();
+        
+        
+      
+
+       
     }    
     
     
@@ -86,4 +104,30 @@ public class AfficherLivraisonController implements Initializable {
     }
 
 }
+
+    @FXML
+    private void afficherlivraison(ActionEvent event) {
+        
+         showMessageDialog(null, " Vous Etes Déjà Là-Bas " ); 
+        
+    }
+
+    @FXML
+    private void afficherlivreur(ActionEvent event) {
+        
+         try {
+         
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherLivreur.fxml"));
+            Parent root = (Parent)loader.load();
+            AfficherLivreurController controller = (AfficherLivreurController)loader.getController();
+            logo.getScene().setRoot(root);
+         
+        
+        } catch (Exception e) {
+             System.out.println(e);
+                
+        }
+        
+        
+    }
 }

@@ -7,31 +7,31 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="Hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LivreurViewController">
+<HBox fx:id="Hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="952.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LivreurViewController">
    <children>
-      <Label fx:id="cintf" alignment="CENTER" prefHeight="29.0" prefWidth="120.0" text="CIN" textAlignment="CENTER" translateX="-14.0" translateY="13.0">
+      <Label fx:id="cintf" alignment="CENTER" prefHeight="29.0" prefWidth="120.0" text="CIN" textAlignment="CENTER" translateX="1.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="prenomtf" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Prénom" textAlignment="CENTER" translateX="-2.0" translateY="13.0">
+      <Label fx:id="prenomtf" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Prénom" textAlignment="CENTER" translateX="20.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="nomtf" alignment="CENTER" prefHeight="29.0" prefWidth="133.0" text="Nom" textAlignment="CENTER" translateX="10.0" translateY="13.0">
+      <Label fx:id="nomtf" alignment="CENTER" prefHeight="29.0" prefWidth="133.0" text="Nom" textAlignment="CENTER" translateX="45.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="vehiculetf" alignment="CENTER" prefHeight="29.0" prefWidth="139.0" text="Véhicule" textAlignment="CENTER" translateX="40.0" translateY="13.0">
+      <Label fx:id="vehiculetf" alignment="CENTER" prefHeight="29.0" prefWidth="139.0" text="Véhicule" textAlignment="CENTER" translateX="90.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
       <HBox prefHeight="52.0" prefWidth="311.0" spacing="25.0">
          <children>
-            <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#UpdateLivreur" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FFFF00;" textAlignment="CENTER" translateX="117.0" translateY="6.0">
+            <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#UpdateLivreur" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FFFF00;" textAlignment="CENTER" translateX="182.0" translateY="6.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#DeleteLivreur" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FF0000;" textAlignment="CENTER" translateX="140.0" translateY="6.0">
+            <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#DeleteLivreur" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FF0000;" textAlignment="CENTER" translateX="239.0" translateY="6.0">
                <graphic>
                   <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>

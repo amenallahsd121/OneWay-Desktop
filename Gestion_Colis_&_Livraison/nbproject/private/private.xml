@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/AjouterColisController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/LivraisonViewController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/AjouterLivreurController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/AfficherLivraisonController.java</file>
             <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/test/Back.java</file>
-            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/ModifierLivreurController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/services/LivraisonService.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/ColisViewController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/AfficherColisController.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/services/ColisService.java</file>
+            <file>file:/C:/Users/amens/Documents/NetBeansProjects/Gestion_Colis_&amp;_Livraison/src/gui/AfficherLivreurController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -49,8 +49,6 @@ public class AjouterColisController implements Initializable {
     private ChoiceBox<String> lieuatf;
     @FXML
     private ComboBox<Integer> id_clienttf;
-    @FXML
-    private TextField prixtf;
     
      private String [] gouvernorat = {"Ariana","Béja","Ben Arous","Bizerte","Gabès","Gafsa","Jendouba","Kairouan","Kasserine","Kébili","Kef","Mahdia","Manouba","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan"};
     
@@ -75,13 +73,6 @@ public class AjouterColisController implements Initializable {
    
     }    
 
-    @FXML
-    private void AfficherAfeecterColis(ActionEvent event) {
-    }
-
-    @FXML
-    private void AfficherLivreur(ActionEvent event) {
-    }
 
     @FXML
     private void AjouterColis(ActionEvent event) {

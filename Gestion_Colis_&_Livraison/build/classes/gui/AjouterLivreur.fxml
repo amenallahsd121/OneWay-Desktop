@@ -11,15 +11,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterLivreurController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="748.0" prefWidth="217.0" style="-fx-background-color: #000000;">
+      <VBox layoutX="-2.0" prefHeight="762.0" prefWidth="217.0" style="-fx-background-color: #000000;">
          <children>
             <ImageView fx:id="logo" fitHeight="121.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" translateY="15.0">
                <image>
                   <Image url="@../img/LOGO.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#AfficherAfeecterColis" prefHeight="25.0" prefWidth="129.0" text="Affecter Livraison" translateX="48.0" translateY="100.0" />
-            <Button mnemonicParsing="false" onAction="#AfficherLivreur" prefHeight="25.0" prefWidth="129.0" text="Livreur" translateX="48.0" translateY="200.0" />
          </children></VBox>
       <Label alignment="CENTER" layoutX="450.0" layoutY="14.0" prefHeight="46.0" prefWidth="308.0" text="Ajouter Livreur" textAlignment="CENTER">
          <font>

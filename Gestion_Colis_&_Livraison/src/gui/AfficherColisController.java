@@ -57,6 +57,10 @@ public class AfficherColisController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(AfficherColisController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
+        
  
         
         this.AFFICHERLESCOLIS();

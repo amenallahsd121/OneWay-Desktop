@@ -107,10 +107,11 @@ public class LivraisonService implements IServices<Livraison>{
     
     
     
+    //////////////////////////////////////// ID CLIENT FROM COLIS ////////////////////////////////////////
     
       public int TrouverIdClientByColisId(int id) {
         Integer C = null;
-        String Req = "select id_client from colis where id = " + id + "";
+        String Req = "select id_client from colis where id_colis = " + id + "";
         try {
             Statement st = cnx.createStatement();
             ResultSet res = st.executeQuery(Req); //recherche
@@ -129,6 +130,7 @@ public class LivraisonService implements IServices<Livraison>{
       
       
       
+      //////////////////////////////////////// NOM LIVREUR AVEC ID LIVREUR ////////////////////////////////////////
       
       
       public String TrouverLivreurNameByColisId(int id) {
@@ -151,7 +153,7 @@ public class LivraisonService implements IServices<Livraison>{
       
       
       
-      
+      //////////////////////////////////////// PRIX FROM  ID COLIS ////////////////////////////////////////
       
       
       
@@ -174,10 +176,10 @@ public class LivraisonService implements IServices<Livraison>{
     }
      
     
-    
+    //////////////////////////////////////// NOM CLIENT FROM ID CLIENT ////////////////////////////////////////
       
       
-        public String TrouvernameClientById(int id) {
+        public String TrouverClientNameById(int id) {
         String C = null;
         String Req = "select name from utilisateur where id = " + id + "";
         try {

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import entities.Livraison;
+import javafx.scene.control.ComboBox;
 import services.LivraisonService;
 /**
  * FXML Controller class
@@ -28,7 +29,7 @@ public class LivraisonViewController implements Initializable {
     @FXML
     private Label prixcolis;
     @FXML
-    private Label nomlivreurtf;
+    private ComboBox<String> nomlivreurtf;
     @FXML
     private Label etattf;
 
@@ -65,21 +66,24 @@ public class LivraisonViewController implements Initializable {
     {
         
       NomLivreur=LS.TrouverLivreurNameByColisId(L.getId_livreur());
+      
+      
+      
+      
+      
       prixx = LS.TrouverPrixByIdColis(L.getId_colis());
       id_client=LS.TrouverIdClientByColisId(L.getId_colis());
-      nomClient=LS.TrouvernameClientById(id_client);
+      nomClient=LS.TrouverClientNameById(id_client);
        
        ///////////////////////////////////////////
-     //  System.out.println(NomLivreur);
-      // System.out.println(prixx);
-      // System.out.println(id_client);
-      // System.out.println(nomClient);
+
+       
         
         ////////////////////////////////////////////
         
-        nomctf.setText(NomLivreur);
-        nomlivreurtf.setText(nomClient);
-        prixcolis.setText(Double.toString(prixx));
+        nomctf.setText(nomClient);
+        nomlivreurtf.setValue(NomLivreur);
+        prixcolis.setText(Double.toString(prixx)+" DT");
         etattf.setText(L.getEtat());
        
         liv=L;
