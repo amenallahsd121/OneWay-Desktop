@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import sun.misc.VM;
 import utils.MyDB;
 
 public class utilisateurService {
@@ -20,23 +23,43 @@ public  utilisateurService(){
 }
     
     public void ajouter(utilisateur p) throws SQLException {
-       String req = "INSERT INTO utilisateur (name,lastname,email,adresse,type,nb_point) VALUES("
-                + "'" + p.getName() + "','" + p.getLastname() + "','" + p.getEmail() + "','" + p.getAdresse()+  "','" + p.getType() +"','" + p.getNbr_point()+ "'" + ")";
+        p.setNbr_point(0);
+       String req = "INSERT INTO utilisateur (name,lastname,email,adresse,type,birthdate,password,nb_point) VALUES("
+                + "'" + p.getName() + "','" + p.getLastname() + "','" + p.getEmail() + "','" + p.getAdresse()+  "','" + p.getType() +"','" + p.getBirthdate()+"','" + p.getPassword()+"','" + p.getNbr_point()+ "'" + ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
+        /*if("Client".equals(p.getType())){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("New Client has been added!");
+        alert.show();
+        }
+        else
+        {
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("New Admin has been added!");
+        alert.show();
+        }*/
     }
 
     
     public void modifier(utilisateur p) throws SQLException {
-        String req = "UPDATE utilisateur SET name = ?,lastname = ?,email = ?,adresse = ?,type = ? ,nb_point = ? where id = ?";
+        System.out.println("wokss");
+        String req = "UPDATE utilisateur SET name = ?,lastname = ?,email = ?,adresse = ?,type = ?,birthdate = ? ,password = ?,nb_point = ? where id = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setString(1, p.getName());
         ps.setString(2, p.getLastname());
         ps.setString(3, p.getEmail());
         ps.setString(4, p.getAdresse());
-        ps.setString(5, p.getType());
-        ps.setInt(6, p.getNbr_point());
-        ps.setInt(7, p.getId());
+        ps.setString(5, p.getType());        
+        ps.setDate(6, java.sql.Date.valueOf(p.getBirthdate()));
+        ps.setString(7, p.getPassword());
+        ps.setInt(8, p.getNbr_point());
+        ps.setInt(9, p.getId());
+        
         ps.executeUpdate();
     }
 
@@ -67,6 +90,8 @@ public  utilisateurService(){
             t.setEmail(rs.getString("Email"));
             t.setAdresse(rs.getString("Adresse"));
             t.setType(rs.getString("Type"));
+            t.setBirthdate(rs.getDate("birthdate").toLocalDate());
+            t.setPassword(rs.getString("password"));
             t.setNbr_point(rs.getInt("nb_point"));
             
             
@@ -75,4 +100,78 @@ public  utilisateurService(){
         }
         return users;
     }
+    public List<utilisateur> recupererUser()  throws SQLException{
+         List<utilisateur> users = new ArrayList<>();
+        String s = "select * from utilisateur";
+        Statement st = cnx.createStatement();
+        ResultSet rs =  st.executeQuery(s);
+        while(rs.next()){
+            utilisateur t = new utilisateur();
+            t.setId(rs.getInt("id"));
+            t.setName(rs.getString("Name"));
+            t.setLastname(rs.getString("Lastname"));
+            t.setEmail(rs.getString("Email"));
+            t.setAdresse(rs.getString("Adresse"));
+            t.setType(rs.getString("Type"));
+            t.setBirthdate(rs.getDate("birthdate").toLocalDate());
+            t.setPassword(rs.getString("password"));
+            t.setNbr_point(rs.getInt("nb_point"));
+            if("Client".equals(t.getType()))
+            {
+                users.add(t);
+            }
+            
+            
+            
+        }
+        return users;
+    }
+    public List<utilisateur> recupererAdmin()  throws SQLException{
+         List<utilisateur> users = new ArrayList<>();
+        String s = "select * from utilisateur";
+        Statement st = cnx.createStatement();
+        ResultSet rs =  st.executeQuery(s);
+        while(rs.next()){
+            utilisateur t = new utilisateur();
+            t.setId(rs.getInt("id"));
+            t.setName(rs.getString("Name"));
+            t.setLastname(rs.getString("Lastname"));
+            t.setEmail(rs.getString("Email"));
+            t.setAdresse(rs.getString("Adresse"));
+            t.setType(rs.getString("Type"));
+            t.setBirthdate(rs.getDate("birthdate").toLocalDate());
+            t.setPassword(rs.getString("password"));
+            t.setNbr_point(rs.getInt("nb_point"));
+            if("Admin".equals(t.getType()))
+            {
+                users.add(t);
+            }
+            
+            
+            
+        }
+        return users;
+    }
+    public boolean rechercher(utilisateur m)  throws SQLException{
+        String s = "select * from utilisateur";
+        Statement st = cnx.createStatement();
+        ResultSet rs =  st.executeQuery(s);
+        while(rs.next()){
+            utilisateur t = new utilisateur();
+            
+            t.setName(rs.getString("Name"));
+            t.setPassword(rs.getString("password"));
+            if(t.getName() == null ? m.getName() == null : t.getName().equals(m.getName()))
+            {
+                if(t.getPassword() == null ? m.getPassword() == null : t.getPassword().equals(m.getPassword()))
+                {
+                    return true;
+                }  
+            }
+            
+        }
+        return false;
+       
+    }
+    
 }

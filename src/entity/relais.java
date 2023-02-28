@@ -2,31 +2,60 @@
 package entity;
 
 public class relais {
-     private String id,name,adresse,city;
-    private int capacity;
+     private String name,adresse,lastname,city,email;
+    private int number,id;
 
     public relais() {
     }
 
-    public relais(String id, String name, String adresse, String city, int capacity) {
+    public relais(int id, String name, String adresse,String lastname,String email, String city, int number) {
         this.id = id;
-        this.name = name;
+        this.name = name;        
+        this.lastname = lastname;        
+        this.email = email;
         this.adresse = adresse;
         this.city = city;
-        this.capacity = capacity;
+        this.number = number;
     }
- public relais( String name, String adresse, String city, int capacity) {
+    public relais ( String name, String adresse,String lastname,String email, String city, int number) {
         
-        this.name = name;
+        this.name = name;        
+        this.lastname = lastname;        
+        this.email = email;
         this.adresse = adresse;
         this.city = city;
-        this.capacity = capacity;
+        this.number = number;
     }
-    public String getId() {
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+ 
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -54,17 +83,14 @@ public class relais {
         this.city = city;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
     @Override
     public String toString() {
-        return "relais{" + "id=" + id + ", name=" + name + ", adresse=" + adresse + ", city=" + city + ", capacity=" + capacity + '}';
+        return "relais{" + "id=" + id + ", name=" + name + ", adresse=" + adresse + ", lastname=" + lastname + ", city=" + city + ", email=" + email + ", number=" + number + '}';
     }
+
+    
+
+    
+
     
 }

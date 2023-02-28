@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignupPageController">
+    <stylesheets>
+        <URL value="@signuppage.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="857.0" style="-fx-background-radius: 200;" styleClass="mainFxmlClass">
+          <stylesheets>
+              <URL value="@interface.css" />
+          </stylesheets>
+         <children>
+            <Accordion layoutX="35.0" layoutY="98.0" />
+            <ImageView fitHeight="613.0" fitWidth="436.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutY="-2.0" prefHeight="618.0" prefWidth="474.0" style="-fx-background-color: #febd11;">
+               <children>
+                  <ImageView id="logo" fx:id="imageview" fitHeight="292.0" fitWidth="350.0" layoutX="48.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/Untitled-1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="453.0" layoutY="14.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #febd11; -fx-background-radius: 200;">
+               <children>
+                  <Label layoutX="64.0" layoutY="9.0" style="-fx-alignment: #ffffff;" text="Welcome  " textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="472.0" layoutY="1.0" prefHeight="613.0" prefWidth="385.0" stylesheets="@interface.css">
+               <children>
+                  <Pane prefHeight="615.0" prefWidth="8.0" style="-fx-background-color: #e5e5e5;">
+                     <children>
+                        <Pane layoutY="15.0" prefHeight="38.0" prefWidth="8.0" style="-fx-background-color: #e4aa0f;" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="116.0" layoutY="103.0" style="-fx-background-image: #5046af;" text="Create new account" textFill="#5046af">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="name" layoutX="84.0" layoutY="151.0" prefHeight="26.0" prefWidth="235.0" promptText="Username" styleClass="textfield" stylesheets="@interface.css" />
+                  <Button layoutX="135.0" layoutY="490.0" mnemonicParsing="false" onAction="#signup" onMouseClicked="#showLogin" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: #febd11; -fx-background-radius: 200;" text="Signup" />
+                  <Line endX="55.20001220703125" layoutX="204.0" layoutY="599.0" startX="-57.60003662109375" stroke="#5046af" />
+                  <TextField fx:id="lastname" layoutX="84.0" layoutY="205.0" prefHeight="26.0" prefWidth="235.0" promptText="Lastname" styleClass="textfield" stylesheets="@interface.css" />
+                  <TextField fx:id="adresse" layoutX="85.0" layoutY="314.0" prefHeight="26.0" prefWidth="235.0" promptText="Adresse" styleClass="textfield" stylesheets="@interface.css" />
+                  <TextField fx:id="email" layoutX="84.0" layoutY="256.0" prefHeight="26.0" prefWidth="235.0" promptText="Email" styleClass="textfield" stylesheets="@interface.css" />
+                  <Label layoutX="177.0" layoutY="571.0" onMouseClicked="#showLogin" prefHeight="21.0" prefWidth="49.0" text="Sign in" textFill="#5046af">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="checkpass" layoutX="217.0" layoutY="458.0" mnemonicParsing="false" onMouseClicked="#showpassword" text="show password" />
+                  <PasswordField fx:id="password" layoutX="85.0" layoutY="417.0" prefHeight="25.0" prefWidth="235.0" promptText="Password" styleClass="textfield" />
+                  <DatePicker fx:id="birthdate" layoutX="85.0" layoutY="364.0" prefHeight="25.0" prefWidth="235.0" promptText="Birth date" stylesheets="@birthdate.css" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

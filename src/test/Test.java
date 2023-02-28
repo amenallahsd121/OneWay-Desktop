@@ -13,16 +13,17 @@ public class Test {
         MyDB db = MyDB.getInstance();
     
        System.out.println(db);
-        utilisateur u1 = new utilisateur("ffff","felhi","gokgojg","kffk","client",12);
-        relais r1 = new relais("ggg4","dfgfd","dhdghg","dggdf",10);
+        //utilisateur u1 = new utilisateur(23,"ffff","felhi","gokgojg","kffk","client",12);
+        /*relais r1 = new relais("dddd5","dfgfd","dhdghg","dggdf",10);
+        relais r2= new relais("hhh4","ousasl","ggdsee","baaan",50);*/
         
         utilisateurService us = new utilisateurService();
         relaisService rs = new relaisService();
         
-       rs.ajouter(r1);
+      //rs.ajouter(r1);
         //System.out.println(rs.recuperer());
-        //us.supprimer(u1);
-        System.out.println(us.recuperer());
+        //rs.supprimer(r1);
+        System.out.println(rs.recuperer());
         
                     
                     

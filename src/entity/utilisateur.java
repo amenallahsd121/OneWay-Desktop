@@ -1,32 +1,63 @@
 
 package entity;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 public class utilisateur {
     private int id;
     private int nbr_point;
    private String name,lastname,adresse,email;
    private String type;
+   private String password;
+   private LocalDate birthdate;
+
+
 
     public utilisateur() {
     }
 
-    public utilisateur(int id, String name, String lastname, String adresse, String email, String type,int nbr_point) {
-        this.id = id;
+    public utilisateur( String name, String lastname, String email, String adresse, String type,LocalDate birthdate,String password) {
         this.name = name;
         this.lastname = lastname;
         this.adresse = adresse;
         this.email = email;
         this.type = type;
+        this.password = password;
         this.nbr_point = nbr_point ;
+        this.birthdate = birthdate;
     }
-    public utilisateur( String name, String lastname, String adresse, String email, String type,int nbr_point) {
+    
+    public utilisateur( String name, String lastname, String email, String adresse, String type,String password) {
         this.name = name;
         this.lastname = lastname;
         this.adresse = adresse;
         this.email = email;
         this.type = type;
-        this.nbr_point = nbr_point ;
+        this.password = password;
+        
+    }
+public utilisateur( String name,String password) {
+        this.name = name;
+        this.password = password;
+        
+    }
+    
+        public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getNbr_point() {
@@ -87,8 +118,12 @@ public class utilisateur {
 
     @Override
     public String toString() {
-        return "utilisateur{" + "id=" + id + ", nbr_point=" + nbr_point + ", name=" + name + ", lastname=" + lastname + ", adresse=" + adresse + ", email=" + email + ", type=" + type + '}';
+        return "utilisateur{" + "id=" + id + ", nbr_point=" + nbr_point + ", name=" + name + ", lastname=" + lastname + ", adresse=" + adresse + ", email=" + email + ", type=" + type + ", password=" + password + ", birthdate=" + birthdate + '}';
     }
+
+    
+
+    
 
    
 

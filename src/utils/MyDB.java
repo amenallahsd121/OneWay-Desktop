@@ -19,7 +19,7 @@ public class MyDB {
             System.out.println("Database connected");
         } catch (SQLException ex) {
            // Logger.getLogger(MyDB.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
     }
 

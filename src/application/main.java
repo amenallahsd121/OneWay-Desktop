@@ -1,6 +1,7 @@
 
 package application;
 
+import GUI.HomeController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,28 +12,34 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class main extends Application {
-    
+   HomeController  hr= new  HomeController();
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/interface.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/home.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root,900,700);
+          
+            // Scene scene = new Scene(root,900,610);            
+            Scene scene = new Scene(root,1370,610);           
+           
+            
+
             primaryStage.setScene(scene);
             primaryStage.setTitle("login");
             primaryStage.show();
+      
 
         } catch (IOException ex) {
             System.out.println("error" + ex.getMessage());
         }
+       
     }
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
         launch(args);
     }

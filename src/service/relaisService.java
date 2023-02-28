@@ -20,20 +20,23 @@ public relaisService()  {
             
 }
     public void ajouter(relais p) throws SQLException {
-        String req = "INSERT INTO relais (id,name,adresse,city,capacity) VALUES("
-                + "'" + p.getId() + "','" + p.getName() + "','" + p.getAdresse() + "','" + p.getCity() + "','" + p.getCapacity() + "'" +")";
+        //System.out.println(p.getEmail());
+        String req = "INSERT INTO relais (name,lastname,email,adresse,city,number) VALUES("
+                + "'" + p.getName() + "','" + p.getLastname()+ "','" + p.getEmail()+ "','" + p.getAdresse() + "','" + p.getCity() + "','" + p.getNumber() + "'" +")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
 
     public void modifier(relais p) throws SQLException {
-        String req = "UPDATE relais SET name = ?,adresse = ?,city = ?,capacity = ? where id = ?";
+        String req = "UPDATE relais SET name = ?,lastname = ?,email = ?,adresse = ?,city = ?,number = ? where id = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
-        ps.setString(1, p.getName());
-        ps.setString(2, p.getAdresse());
-        ps.setString(3, p.getCity());
-        ps.setInt(4, p.getCapacity());
-        ps.setString(5, p.getId());
+        ps.setString(1, p.getName());        
+        ps.setString(2, p.getLastname());        
+        ps.setString(3, p.getEmail());
+        ps.setString(4, p.getAdresse());
+        ps.setString(5,p.getCity());
+        ps.setInt(6, p.getNumber());
+        ps.setInt(7, p.getId());
         ps.executeUpdate();
     }
 
@@ -57,10 +60,13 @@ public relaisService()  {
         ResultSet rs =  st.executeQuery(s);
         while(rs.next()){
             relais t = new relais();
-            t.setName(rs.getString("Name"));
-            t.setAdresse(rs.getString("Adresse"));
-            t.setCity(rs.getString("City"));
-            t.setCapacity(rs.getInt("Capacity"));
+            t.setId(rs.getInt("id"));
+            t.setName(rs.getString("name"));            
+            t.setLastname(rs.getString("lastname"));            
+            t.setEmail(rs.getString("email"));
+            t.setAdresse(rs.getString("adresse"));
+            t.setCity(rs.getString("city"));
+            t.setNumber(rs.getInt("number"));
             
             
             

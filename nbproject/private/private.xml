@@ -3,13 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/service/LocationService.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/ModifierAdminController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/ite.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/InterfaceController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/addadminController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/HomeController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/SignupPageController.java</file>
             <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/service/relaisService.java</file>
-            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/test/Test.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/addRelaiController.java</file>
             <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/application/main.java</file>
-            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/entity/relais.java</file>
-            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/service/IService.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/ItemController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/ModifierController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/entity/location.java</file>
             <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/service/utilisateurService.java</file>
-            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/test/Test.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/RelaiController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/itemRelaiController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/entity/relais.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/adminController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/ModRelaiController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/MainPageController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/addLocationController.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/service/IService.java</file>
+            <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/GUI/Relaiview.fxml</file>
             <file>file:/C:/Users/wwwou/Documents/java/tesweb/src/entity/utilisateur.java</file>
         </group>
     </open-files>
