@@ -35,7 +35,7 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Button fx:id="retour_btn" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#retournerHome" prefHeight="41.0" prefWidth="52.0" style="-fx-background-radius: 100; -fx-background-color: #18314F;" text="Retour" textFill="#18314f">
+      <Button fx:id="retour_btn" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#retournerHome" prefHeight="41.0" prefWidth="52.0" style="-fx-background-radius: 100; -fx-background-color: #384E77;" text="Retour" textFill="#18314f">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>

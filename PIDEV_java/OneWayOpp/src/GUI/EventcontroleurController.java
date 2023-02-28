@@ -61,6 +61,10 @@ public class EventcontroleurController implements Initializable {
     private Button participerbtn;
     @FXML
     private ComboBox<Integer> id_client;
+    @FXML
+    private Label lblclientt;
+    @FXML
+    private Label awardslbl;
    
    
     /**
@@ -79,10 +83,12 @@ public class EventcontroleurController implements Initializable {
         date_fin_label.setText(E.getDescription());
         
       id_label.setText(String.valueOf(E.getId_event()));
+      awardslbl.setText(E.getAwards());
       e=E;
-       ObservableList<Integer> list1 = FXCollections.observableArrayList();        
-        list1 = ps.getidclient();
-        id_client.setItems(list1);
+      lblclientt.setText(String.valueOf(ps.getidclientt()));
+//       ObservableList<Integer> list1 = FXCollections.observableArrayList();        
+//        list1 = ps.getidclient();
+//        id_client.setItems(list1);
        
     }
 //     public int getIdEvenement(Evenement E){
@@ -131,13 +137,13 @@ public class EventcontroleurController implements Initializable {
     
             
             
-            
+            ModifierEvenementController.getIdd(e);
             
              try {
-          Parent loader = FXMLLoader.load(getClass().getResource("AjouterEvenement.fxml"));
+          Parent loader = FXMLLoader.load(getClass().getResource("ModifierEvenement.fxml"));
          // Parent root = loader.load();
          
-         AjouterEvenementController.getIdd(e.getId_event());
+         
                  
                          
                  
@@ -164,7 +170,8 @@ public class EventcontroleurController implements Initializable {
 
           Participation p = new Participation();
           p.setId_event(e.getId_event());
-          p.setId_user(id_client.getValue());
+          //p.setId_user(id_client.getValue());
+          p.setId_user(ps.getidclientt());
           
            
 

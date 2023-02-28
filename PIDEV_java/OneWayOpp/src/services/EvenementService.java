@@ -24,7 +24,10 @@ import utils.MyDB;
  * @author Meddeb sofien
  */
 public class EvenementService implements IService<Evenement>{
-
+     
+    
+    
+     
     
      Connection cnx = MyDB.getInstance().getCnx(); 
      
@@ -129,7 +132,45 @@ List<Evenement> event = new ArrayList<>();
 
 
 
-    
+     public String getNomEvent(int id) {
+               String P = null;
+
+        String Req = "select nom from evenement where id_event= " + id + "  ";
+                  
+      //ObservableList<Integer> l = FXCollections.observableArrayList();
+      
+        try {
+             
+             
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req);//recherche
+            while (res.next()) {
+              //  l.add(res.getInt(1));
+               P=res.getString(1);
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return P;
+    }
+     
+      public Evenement TrouverById(int id) {
+        Evenement C = null;
+        String Req = "select * from evenement where id_event= " + id + "  ";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet res = st.executeQuery(Req); //recherche
+            while (res.next()) {
+
+            C = new Evenement(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6));               
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());        }
+        return C;
+    }
     
    
 }

@@ -6,6 +6,7 @@
 package GUI;
 
 import Entities.AffectationOpColis;
+import Entities.Evenement;
 import Entities.Participation;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import services.EvenementService;
 import services.ParticipationService;
 
 /**
@@ -42,28 +44,48 @@ public class ParticipationcontrolController implements Initializable {
 
     Participation p = new Participation();
     ParticipationService ps =new ParticipationService();
+    EvenementService es = new EvenementService();
+     int   idt= ps.getidclientt();
+    // String nomev = ps.getNomEvent();
+    
+     
+    @FXML
+    private Label idus;
+    @FXML
+    private Label nomevent;
    
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         
+      
     }    
     public void setParticipationn(Participation  E) {
+        String s1 = es.getNomEvent(E.getId_event());
+         String nomPart = ps.getNomParticpant(E.getId_user());
          id_label.setText(String.valueOf(E.getId_participation()));
-         iduserlabel.setText(String.valueOf(E.getId_user()) );
+         idus.setText(String.valueOf(E.getId_user()) );
+         iduserlabel.setText(nomPart );
+         nomevent.setText(s1 );
          ideventlabel.setText(String.valueOf(E.getId_event()));
         
       p=E;
        
     }
 
+    
+     
     @FXML
     private void supprimerParticipation(ActionEvent event) throws IOException {
+         try {
         Participation a =new Participation();
          a.setId_participation(Integer.parseInt(id_label.getText()));
-        try {
+       if(idt== Integer.parseInt(idus.getText())){
             
               Alert alert = new Alert(Alert.AlertType.WARNING);
 
@@ -71,7 +93,7 @@ public class ParticipationcontrolController implements Initializable {
 
               alert.setHeaderText(null);
 
-              alert.setContentText("Voulez vous supprimer cet Evenement!");
+              alert.setContentText("Voulez vous Annuler cet Participation!");
               ButtonType cancelBtn = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
              alert.getButtonTypes().setAll(cancelBtn, ButtonType.OK);
               Optional<ButtonType> result = alert.showAndWait();
@@ -84,8 +106,22 @@ public class ParticipationcontrolController implements Initializable {
                System.out.println("Suppression Annuler");
     
 }
+       
             Parent loader = FXMLLoader.load(getClass().getResource("AfficherParticipation.fxml"));
             id_label.getScene().setRoot(loader);
+       }
+       else {
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+
+              alert.setTitle("Information Dialog");
+
+              alert.setHeaderText(null);
+
+              alert.setContentText("tu ne peut pas supprimer une participation d'un autre utilisateur ");
+
+              alert.show();
+           
+       }
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

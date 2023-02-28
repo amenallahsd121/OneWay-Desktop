@@ -74,7 +74,7 @@ public class ParticipationService implements  IService<Participation>{
     public List<Participation> recuperer(Participation t) throws SQLException {
       List<Participation> lP = new ArrayList<Participation>();
         try{
-          String req = "SELECT * FROM participation ";
+          String req = "SELECT  * FROM participation ";
           Statement st = cnx.createStatement();
           ResultSet rs = st.executeQuery(req);
           while(rs.next()){
@@ -113,5 +113,50 @@ public class ParticipationService implements  IService<Participation>{
         }
         return l;
     }
+     
+      public int getidclientt() {
+       
+        String Req = "select id from utilisateur ";
+                  
+      //ObservableList<Integer> l = FXCollections.observableArrayList();
+      int i = 0;
+        try {
+            
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req); //recherche
+            while (res.next()) {
+              //  l.add(res.getInt(1));
+               i=res.getInt(1);
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return i;
+    }
+      public String getNomParticpant(int id) {
+       
+        String Req = "select name from utilisateur where id = " + id +"";
+                  
+      //ObservableList<Integer> l = FXCollections.observableArrayList();
+      String i = null;
+        try {
+             
+             
+           Statement ste = cnx.createStatement();
+           ResultSet res =  ste.executeQuery(Req);//recherche
+            while (res.next()) {
+              //  l.add(res.getInt(1));
+               i=res.getString(1);
+                
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return i;
+    }
+     
     
 }

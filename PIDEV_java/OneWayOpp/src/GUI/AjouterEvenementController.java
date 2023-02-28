@@ -10,12 +10,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -55,6 +57,7 @@ public class AjouterEvenementController implements Initializable {
     private Label lbl1;
     
     Evenement events = new Evenement();
+    Evenement ev = new Evenement();
     /**
      * Initializes the controller class.
      */
@@ -62,6 +65,10 @@ public class AjouterEvenementController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         events = es.recherche(idd);
+        //setData();
+         mydatedebut.setValue(LocalDate.now());
+            mydatefin.setValue(LocalDate.now());
+        
        
         
        
@@ -69,9 +76,11 @@ public class AjouterEvenementController implements Initializable {
 
     @FXML
     private void ajouterEvenement(ActionEvent event) {
+       
         
  try {
           LocalDate date_debut,date_fin;
+           
           date_debut = mydatedebut.getValue();
           date_fin = mydatefin.getValue();
           Evenement e = new Evenement();
@@ -120,10 +129,15 @@ public class AjouterEvenementController implements Initializable {
           
     }
      private void reset() {
-         
+//                   Evenement e = new Evenement();
+//    LocalDate date ;
+//    date=LocalDate.of(00, 00, 00);
         nom.setText("");     
         awards.setText("");
         description.setText("");
+       // mydatedebut.setValue(date);
+        
+        
     } 
      public  void setData(){
          events = es.recherche(idd);
@@ -170,12 +184,11 @@ public class AjouterEvenementController implements Initializable {
         
        
         
-        
-        LocalDate date_debut,date_fin;
+         
+          LocalDate date_debut,date_fin;
           date_debut = mydatedebut.getValue();
           date_fin = mydatefin.getValue();
-          Evenement e = new Evenement();
-          
+          Evenement e = new Evenement();         
           e.setId_event(idd);
           e.setNom(nom.getText());
           e.setDate_debut(date_debut.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
