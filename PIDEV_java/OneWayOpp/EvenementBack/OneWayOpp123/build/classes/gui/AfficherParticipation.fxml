@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="paneMain" prefHeight="739.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfficherParticipationController">
+   <children>
+      <Label layoutX="361.0" layoutY="18.0" prefHeight="34.0" prefWidth="197.0" text="Afficher Participation : " textFill="#ea9999">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="113.0" layoutY="117.0" prefHeight="619.0" prefWidth="1002.0">
+         <content>
+            <VBox fx:id="vboxpar" prefHeight="607.0" prefWidth="994.0" />
+         </content>
+      </ScrollPane>
+      <HBox fx:id="hbox" layoutX="113.0" layoutY="72.0" prefHeight="42.0" prefWidth="998.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="66.0" text="USER" translateX="40.0" translateY="10.0">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Evenement" translateX="450.0" translateY="10.0">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Annule Participation" translateX="680.0" translateY="10.0">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button fx:id="retour_btn" layoutX="261.0" layoutY="20.0" mnemonicParsing="false" onAction="#retournerHome" prefHeight="42.0" prefWidth="69.0" style="-fx-background-radius: 100; -fx-background-color: #384E77;" text="Retour" textFill="#18314f" />
+      <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="70.0" prefWidth="106.0" />
+   </children>
+</AnchorPane>

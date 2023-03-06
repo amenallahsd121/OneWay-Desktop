@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1167.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherAffController">
+   <children>
+      <Label alignment="CENTER" layoutX="231.0" layoutY="31.0" prefHeight="7.0" prefWidth="264.0" textAlignment="CENTER">
+         <font>
+            <Font name="Rockwell" size="30.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="933.0" layoutY="30.0" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#AjouterAff" prefHeight="53.0" prefWidth="56.0" style="-fx-background-radius: 100; -fx-background-color: #32CD32;" textAlignment="CENTER" translateX="130.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/OneWay-Gestion_Colis_/OneWay-Gestion_Colis_/Gestion_Colis_&amp;_Livraison/src/img/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="tttt" alignment="CENTER" layoutX="909.0" layoutY="44.0" prefHeight="26.0" prefWidth="145.0" text="Ajouter Affectation">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="45.0" layoutY="149.0" prefHeight="644.0" prefWidth="1123.0">
+         <content>
+            <VBox fx:id="VboxLEvent" prefHeight="631.0" prefWidth="1110.0" />
+         </content>
+      </ScrollPane>
+      <HBox layoutX="42.0" layoutY="103.0" prefHeight="38.0" prefWidth="1136.0" spacing="90.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="62.0" text="Colis" translateX="50.0" translateY="10.0">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="41.0" prefWidth="179.0" text="Opportuniteé">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Modifier" translateX="40.0" translateY="10.0">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Supprimer" translateY="10.0">
+               <font>
+                  <Font name="Lucida Bright Demibold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="paneMain" layoutX="32.0" layoutY="21.0" prefHeight="75.0" prefWidth="120.0" />
+   </children>
+</AnchorPane>
