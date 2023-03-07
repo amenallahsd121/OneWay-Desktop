@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BackOfficeController">
+   <left>
+      <VBox prefHeight="664.0" prefWidth="201.0" spacing="25.0" style="-fx-background-color: #05071F;" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoClient" prefHeight="26.0" prefWidth="123.0" text="Client" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoAdmins" prefHeight="26.0" prefWidth="123.0" text="Admins" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoRelais" prefHeight="26.0" prefWidth="123.0" text="Relais" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoReclamation" prefHeight="26.0" prefWidth="123.0" text="Réclamation" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoOffreDemande" prefHeight="26.0" prefWidth="123.0" text="Offre et Demande" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoEvenement" prefHeight="26.0" prefWidth="123.0" text="Evenement" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoOpportunité" prefHeight="26.0" prefWidth="123.0" text="Opportunité" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoVehicule" prefHeight="26.0" prefWidth="123.0" text="Véhicule" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoLivreur" prefHeight="26.0" prefWidth="123.0" text="Livreur" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoColis" prefHeight="26.0" prefWidth="123.0" text="Colis" translateX="40.0" translateY="170.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#GoSignOut" prefHeight="26.0" prefWidth="123.0" text="Sign Out" translateX="40.0" translateY="190.0">
+               <stylesheets>
+                  <URL value="@../Desktop/Back/Back/style.css" />
+                  <URL value="@style.css" />
+               </stylesheets></Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <ImageView fitHeight="431.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../img/LOGO.png" />
+         </image>
+      </ImageView>
+   </center>
+</BorderPane>
