@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterReponseController">
+   <children>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="14.0" prefHeight="46.0" prefWidth="308.0" text="Ajouter Reponse" textAlignment="CENTER">
+         <font>
+            <Font name="Rockwell" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="107.0" layoutY="259.0" prefHeight="33.0" prefWidth="143.0" text="Reponse">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="638.0" layoutY="442.0" mnemonicParsing="false" onAction="#repondre" prefHeight="33.0" prefWidth="113.0" text="Repondre" />
+      <TextField fx:id="reponse" layoutX="285.0" layoutY="105.0" prefHeight="308.0" prefWidth="592.0" />
+      <Button layoutX="764.0" layoutY="442.0" mnemonicParsing="false" onAction="#Menu" prefHeight="33.0" prefWidth="113.0" text="Menu" />
+   </children>
+</AnchorPane>

@@ -2,25 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterColisController">
    <children>
-      <VBox layoutX="-2.0" prefHeight="748.0" prefWidth="217.0" style="-fx-background-color: #000000;">
-         <children>
-            <ImageView fx:id="logo" fitHeight="121.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" translateY="15.0">
-               <image>
-                  <Image url="@../img/LOGO.png" />
-               </image>
-            </ImageView>
-         </children></VBox>
       <Label alignment="CENTER" layoutX="450.0" layoutY="14.0" prefHeight="46.0" prefWidth="308.0" text="Ajouter Colis" textAlignment="CENTER">
          <font>
             <Font name="Rockwell" size="30.0" />
@@ -47,16 +35,10 @@
          </font>
       </Label>
       <TextField fx:id="poidstf" layoutX="495.0" layoutY="201.0" prefHeight="25.0" prefWidth="241.0" />
-      <Button layoutX="765.0" layoutY="562.0" mnemonicParsing="false" onAction="#AjouterColis" prefHeight="33.0" prefWidth="113.0" text="Ajouter" />
+      <Button layoutX="765.0" layoutY="562.0" mnemonicParsing="false" onAction="#AjouterColis" prefHeight="33.0" prefWidth="113.0" text="Payer" />
       <Button layoutX="901.0" layoutY="562.0" mnemonicParsing="false" onAction="#AnnulerColis" prefHeight="33.0" prefWidth="113.0" text="Liste des Colis" />
       <ChoiceBox fx:id="typetf" layoutX="495.0" layoutY="273.0" prefHeight="25.0" prefWidth="241.0" />
       <ChoiceBox fx:id="lieudtf" layoutX="495.0" layoutY="351.0" prefHeight="25.0" prefWidth="241.0" />
       <ChoiceBox fx:id="lieuatf" layoutX="495.0" layoutY="434.0" prefHeight="25.0" prefWidth="241.0" />
-      <ComboBox fx:id="id_clienttf" layoutX="495.0" layoutY="124.0" prefHeight="25.0" prefWidth="241.0" />
-      <Label alignment="CENTER" layoutX="333.0" layoutY="125.0" prefHeight="23.0" prefWidth="113.0" text="ID Client">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

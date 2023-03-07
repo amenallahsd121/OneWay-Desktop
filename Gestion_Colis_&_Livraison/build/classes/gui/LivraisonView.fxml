@@ -1,57 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <HBox fx:id="Hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LivraisonViewController">
    <children>
-      <Label fx:id="nomctf" alignment="CENTER" prefHeight="29.0" prefWidth="120.0" text="Nom Client" textAlignment="CENTER" translateX="13.0" translateY="13.0">
+      <Label fx:id="nomctf" alignment="CENTER" prefHeight="29.0" prefWidth="120.0" text="Nom Client" textAlignment="CENTER" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="prixcolis" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Prix Colis" textAlignment="CENTER" translateX="36.0" translateY="13.0">
+      <Label fx:id="prixcolis" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Prix Colis" textAlignment="CENTER" translateX="40.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="nomlivreurtf" prefWidth="150.0" translateX="58.0" translateY="13.0" />
-      <Label fx:id="etattf" alignment="CENTER" prefHeight="29.0" prefWidth="139.0" text="Etat" textAlignment="CENTER" translateX="90.0" translateY="13.0">
+      <Label fx:id="livreurtf" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Livreur" textAlignment="CENTER" translateX="135.0" translateY="13.0">
          <font>
             <Font name="Lucida Sans Unicode" size="12.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#UpdateLivraison" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FFFF00;" textAlignment="CENTER" translateX="297.0" translateY="5.0">
-         <graphic>
-            <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/update.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Label fx:id="etattf" alignment="CENTER" prefHeight="29.0" prefWidth="135.0" text="Etat" textAlignment="CENTER" translateX="225.0" translateY="13.0">
+         <font>
+            <Font name="Lucida Sans Unicode" size="12.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#UpdateLivraison" prefHeight="32.0" prefWidth="74.0" style="-fx-background-radius: 5; -fx-background-color: #0230A; -fx-background-insets: 0;" stylesheets="@style.css" textAlignment="CENTER" translateX="280.0" translateY="9.0">
+         <effect>
+            <Bloom>
+               <input>
+                  <ColorAdjust />
+               </input>
+            </Bloom>
+         </effect>
       </Button>
-      <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#DeleteLivraison" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #FF0000;" textAlignment="CENTER" translateX="380.0" translateY="5.0">
-         <graphic>
-            <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/delete.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#AddLivraison" prefHeight="40.0" prefWidth="42.0" style="-fx-background-radius: 100; -fx-background-color: #32CD32;" textAlignment="CENTER" translateX="90.0" translateY="5.0">
-         <graphic>
-            <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/add.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button alignment="CENTER" minHeight="20.0" minWidth="15.0" mnemonicParsing="false" onAction="#DeleteLivraison" prefHeight="32.0" prefWidth="74.0" style="-fx-background-radius: 5; -fx-background-color: #0230A; -fx-background-insets: 0;" stylesheets="@style.css" textAlignment="CENTER" translateX="333.0" translateY="9.0">
+         <effect>
+            <Bloom>
+               <input>
+                  <ColorAdjust />
+               </input>
+            </Bloom>
+         </effect>
       </Button>
    </children>
 </HBox>

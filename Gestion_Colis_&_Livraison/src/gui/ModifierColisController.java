@@ -32,8 +32,6 @@ import services.ColisService;
 public class ModifierColisController implements Initializable {
 
     @FXML
-    private ImageView logo;
-    @FXML
     private TextField poidstf;
     @FXML
     private ChoiceBox<String> typetf;
@@ -94,13 +92,6 @@ public class ModifierColisController implements Initializable {
          
     }    
 
-    @FXML
-    private void AfficherAfeecterColis(ActionEvent event) {
-    }
-
-    @FXML
-    private void AfficherLivreur(ActionEvent event) {
-    }
 
     
     
@@ -165,9 +156,9 @@ public class ModifierColisController implements Initializable {
         
          try {
          
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherColis.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontOffice.fxml"));
             Parent root = (Parent)loader.load();
-            AfficherColisController controller = (AfficherColisController)loader.getController();
+            FrontOfficeController controller = (FrontOfficeController)loader.getController();
             typetf.getScene().setRoot(root);
              
         
