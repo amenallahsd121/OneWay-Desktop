@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="1088.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterTrajetController">
+   <children>
+      <AnchorPane focusTraversable="true" layoutX="7.0" layoutY="3.0" minHeight="0.0" minWidth="0.0" prefHeight="681.0" prefWidth="795.0" style="-fx-background-color: #02030A;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="447.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" layoutX="407.0" layoutY="390.0" prefHeight="42.0" prefWidth="207.0" style="-fx-font-size: 25;" text="A propos!" textAlignment="CENTER">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.10526315867900848" green="0.10233917832374573" blue="0.105214424431324" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9342105388641357" green="0.9125852584838867" blue="0.933850109577179" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Text fill="#f5f5f5" fontSmoothingType="LCD" layoutX="362.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15;" text="                           Categorie Offre:&#10;les cotegories de offre precisent les caracteristique et les coordonnees de l'offre proposee.&#10;formulaire d'ajout :&#10;Nombre De colis : nombre d'objets maximale a transportee.&#10;Poids Globales:Maximum de poids a transportee.&#10;Type: est l'equivalent en lettre de Nombre De Colis +Poids Globales.&#10;Exemple : s:small = (nombre de colis =1+poids Maximale =1 kg)" textOrigin="CENTER" wrappingWidth="330.0">
+               <font>
+                  <Font name="Agency FB" size="20.0" />
+               </font>
+            </Text>
+            <HBox layoutY="1.0" prefHeight="680.0" prefWidth="343.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+               <effect>
+                  <DropShadow height="92.69" radius="53.567499999999995" spread="0.38" width="123.58">
+                     <color>
+                        <Color red="0.3890411853790283" green="0.3746345043182373" blue="0.3947368562221527" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Pane prefHeight="794.0" prefWidth="256.0">
+                     <children>
+                        <TextField fx:id="AddDepartOffre" alignment="CENTER" layoutX="60.0" layoutY="147.0" prefHeight="29.0" prefWidth="207.0" promptText="Addresse De Depart" style="-fx-border-color: #02030A; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: white;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                        <TextField fx:id="AddArriveOffre" alignment="CENTER" layoutX="60.0" layoutY="214.0" opacity="0.8" prefHeight="29.0" prefWidth="207.0" promptText="Addresse D'arrivee" style="-fx-border-color: #02030A; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: white;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                        <TextField fx:id="NbreEscaleOffre" alignment="CENTER" layoutX="60.0" layoutY="281.0" opacity="0.8" prefHeight="29.0" prefWidth="207.0" promptText="NbreEscaleOffre" style="-fx-border-color: #02030A; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: white;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                        <Button fx:id="AjouterTrajet" layoutX="87.0" layoutY="444.0" mnemonicParsing="false" onAction="#AjouterTrajet" prefHeight="29.0" prefWidth="153.0" style="-fx-background-color: #02030A; -fx-background-radius: 25; -fx-border-color: #02030A; -fx-border-width: 0;" text="Ajouter" textFill="#fcf8fc" textOverrun="CLIP">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.1950536072254181" green="0.19005848467350006" blue="0.19736842811107635" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="40.0" layoutY="44.0" prefHeight="72.0" prefWidth="248.0" style="-fx-font-size: 25;" text="Nouvelle Trajet !" textAlignment="CENTER">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.15585607290267944" green="0.11708089709281921" blue="0.40789473056793213" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.9703947305679321" green="0.9685672521591187" blue="0.9868420958518982" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="116.0" prefHeight="17.0" prefWidth="123.0" style="-fx-font-size: 13;" text="Addresse De Depart" textFill="#170e40" />
+                        <Label layoutX="70.0" layoutY="189.0" prefHeight="17.0" prefWidth="123.0" style="-fx-font-size: 13;" text="Addresse D'arrivee" textFill="#180e43" />
+                        <Label layoutX="70.0" layoutY="254.0" prefHeight="17.0" prefWidth="123.0" style="-fx-font-size: 13;" text="NbreEscaleOffre" textFill="#150c4a" />
+                        <TextField fx:id="LimiteKmOffre" alignment="CENTER" layoutX="61.0" layoutY="359.0" opacity="0.8" prefHeight="29.0" prefWidth="207.0" promptText="Maximum De Km" style="-fx-border-color: #02030A; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: white;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                        <Label layoutX="70.0" layoutY="333.0" prefHeight="17.0" prefWidth="123.0" style="-fx-font-size: 13;" text="Maximum Km" textFill="#180e4a" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

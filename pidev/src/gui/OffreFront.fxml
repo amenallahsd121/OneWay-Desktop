@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="1346.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.OffreFrontController">
+   <children>
+      <Pane fx:id="pnlOverview" layoutX="-4.0" prefHeight="670.0" prefWidth="1346.0">
+         <children>
+            <TextField layoutX="175.0" layoutY="31.0" prefHeight="27.0" prefWidth="554.0" promptText="recherche" style="-fx-background-color: white; -fx-border-color: #FEBD11; -fx-border-radius: 2em;" />
+            <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="686.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8_Search_52px.png" />
+               </image>
+            </ImageView>
+            <Pagination fx:id="pignation" layoutX="76.0" layoutY="104.0" pageCount="50" prefHeight="552.0" prefWidth="1195.0" style="-fx-background-color: white;">
+               <padding>
+                  <Insets left="0.0" />
+               </padding>
+            </Pagination>
+            <WebView fx:id="webview" layoutX="922.0" layoutY="14.0" prefHeight="644.0" prefWidth="421.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </WebView>
+         </children>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </Pane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>

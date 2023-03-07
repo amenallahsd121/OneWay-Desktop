@@ -19,7 +19,7 @@ import java.sql.Connection;
  */
 public class MyDB {
 
-    String url = "jdbc:mysql://localhost:3306/esprit";
+    String url = "jdbc:mysql://localhost:3306/Oneway";
     String username = "root";
     String password = "";
 

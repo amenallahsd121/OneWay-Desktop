@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="AnchorPane"/>
+    </start>
+    <define name="AnchorPane">
+        <element name="AnchorPane">
+            <optional>
+                <attribute name="maxHeight">
+                    <data type="NMTOKEN"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="maxWidth">
+                    <data type="NMTOKEN"/>
+                </attribute>
+            </optional>
+            <attribute name="minHeight">
+                <data type="NMTOKEN"/>
+            </attribute>
+            <attribute name="minWidth">
+                <data type="NMTOKEN"/>
+            </attribute>
+            <optional>
+                <attribute name="prefHeight">
+                    <data type="decimal"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="prefWidth">
+                    <data type="decimal"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="style"/>
+            </optional>
+            <optional>
+                <attribute name="fx:controller"/>
+            </optional>
+            <zeroOrMore>
+                <ref name="children"/>
+            </zeroOrMore>
+            <optional>
+                <ref name="effect"/>
+            </optional>
+        </element>
+    </define>
+    <define name="children">
+        <element name="children">
+            <optional>
+                <element name="SplitPane">
+                    <attribute name="dividerPositions">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="layoutY">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <element name="items">
+                        <oneOrMore>
+                            <ref name="AnchorPane"/>
+                        </oneOrMore>
+                    </element>
+                </element>
+                <element name="ScrollBar">
+                    <attribute name="layoutX">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="orientation">
+                        <data type="NCName"/>
+                    </attribute>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="style"/>
+                </element>
+                <element name="GridPane">
+                    <attribute name="layoutX">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="layoutY">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="fx:id">
+                        <data type="NCName"/>
+                    </attribute>
+                    <element name="columnConstraints">
+                        <element name="ColumnConstraints">
+                            <attribute name="hgrow">
+                                <data type="NCName"/>
+                            </attribute>
+                            <attribute name="minWidth">
+                                <data type="decimal"/>
+                            </attribute>
+                            <attribute name="prefWidth">
+                                <data type="decimal"/>
+                            </attribute>
+                        </element>
+                    </element>
+                    <element name="rowConstraints">
+                        <element name="RowConstraints">
+                            <attribute name="minHeight">
+                                <data type="decimal"/>
+                            </attribute>
+                            <attribute name="prefHeight">
+                                <data type="decimal"/>
+                            </attribute>
+                            <attribute name="valignment">
+                                <data type="NCName"/>
+                            </attribute>
+                            <attribute name="vgrow">
+                                <data type="NCName"/>
+                            </attribute>
+                        </element>
+                    </element>
+                    <ref name="children"/>
+                </element>
+            </optional>
+            <optional>
+                <element name="HBox">
+                    <optional>
+                        <attribute name="layoutX">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="style"/>
+                    <attribute name="fx:id">
+                        <data type="NCName"/>
+                    </attribute>
+                    <ref name="effect"/>
+                    <ref name="children"/>
+                </element>
+                <element name="Pane">
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <ref name="children"/>
+                </element>
+            </optional>
+            <zeroOrMore>
+                <element name="TextField">
+                    <attribute name="alignment">
+                        <data type="NCName"/>
+                    </attribute>
+                    <attribute name="layoutX">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="layoutY">
+                        <data type="decimal"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="opacity">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="promptText">
+                            <data type="NCName"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="style"/>
+                    <attribute name="fx:id">
+                        <data type="NCName"/>
+                    </attribute>
+                    <element name="opaqueInsets">
+                        <element name="Insets">
+                            <empty/>
+                        </element>
+                    </element>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="Button">
+                    <attribute name="layoutX">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="layoutY">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="mnemonicParsing">
+                        <data type="boolean"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="onAction"/>
+                    </optional>
+                    <attribute name="prefHeight">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="prefWidth">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="style"/>
+                    <optional>
+                        <attribute name="text">
+                            <data type="NCName"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="textFill"/>
+                    </optional>
+                    <optional>
+                        <attribute name="textOverrun">
+                            <data type="NCName"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="fx:id">
+                        <data type="NCName"/>
+                    </attribute>
+                    <optional>
+                        <ref name="effect"/>
+                    </optional>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="Label">
+                    <attribute name="layoutX">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="layoutY">
+                        <data type="decimal"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="prefHeight">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="prefWidth">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <attribute name="text">
+                        <data type="NCName"/>
+                    </attribute>
+                    <optional>
+                        <attribute name="textFill"/>
+                    </optional>
+                    <optional>
+                        <attribute name="fx:id">
+                            <data type="NCName"/>
+                        </attribute>
+                    </optional>
+                </element>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="effect">
+        <element name="effect">
+            <choice>
+                <element name="DropShadow">
+                    <optional>
+                        <attribute name="height">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="radius">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="spread">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="width">
+                            <data type="decimal"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <ref name="color"/>
+                    </optional>
+                </element>
+                <element name="Lighting">
+                    <attribute name="diffuseConstant">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="specularConstant">
+                        <data type="decimal"/>
+                    </attribute>
+                    <attribute name="specularExponent">
+                        <data type="decimal"/>
+                    </attribute>
+                    <element name="bumpInput">
+                        <element name="Shadow">
+                            <attribute name="radius">
+                                <data type="decimal"/>
+                            </attribute>
+                            <attribute name="width">
+                                <data type="decimal"/>
+                            </attribute>
+                            <ref name="color"/>
+                        </element>
+                    </element>
+                    <element name="light">
+                        <element name="Light.Distant">
+                            <empty/>
+                        </element>
+                    </element>
+                </element>
+            </choice>
+        </element>
+    </define>
+    <define name="color">
+        <element name="color">
+            <element name="Color">
+                <attribute name="blue">
+                    <data type="decimal"/>
+                </attribute>
+                <attribute name="green">
+                    <data type="decimal"/>
+                </attribute>
+                <attribute name="red">
+                    <data type="decimal"/>
+                </attribute>
+            </element>
+        </element>
+    </define>
+</grammar>

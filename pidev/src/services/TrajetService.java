@@ -38,12 +38,13 @@ public class TrajetService implements IService<TrajetOffre> {
 
     @Override
     public void modifier(TrajetOffre t) throws SQLException {
-        String req = "UPDATE TrajetOffre SET IdTrajetOffre = ?,LimiteKmOffre = ?,NbreEscaleOffre = ? ,nbreOffre=?";
+        String req = "UPDATE TrajetOffre SET IdTrajetOffre = ?,LimiteKmOffre = ?,NbreEscaleOffre = ? ,nbreOffre=?,description=?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setLong(1, t.getIdTrajetOffre());
         ps.setInt(2, t.getLimiteKmOffre());
         ps.setInt(3, t.getNbreEscaleOffre());
         ps.setInt(4, t.getNbreOffre());
+        ps.setString(5, t.getDescription());
 
         ps.executeUpdate();
         
@@ -51,7 +52,7 @@ public class TrajetService implements IService<TrajetOffre> {
 
     @Override
     public void supprimer(TrajetOffre t) throws SQLException {
-        String querry = "DELETE FROM TrajetOffre WHERE IdTrajetOffre = '" + t.getIdTrajetOffre() + "'";
+        String querry = "DELETE FROM TrajetOffre WHERE description = '" + t.getDescription() + "'";
         Statement stm = cnx.createStatement();
 
         stm.executeUpdate(querry);
@@ -71,7 +72,7 @@ public class TrajetService implements IService<TrajetOffre> {
             p.setAddArriveOffre(rs.getString("AddArriveOffre"));
             p.setAddDepartOffre(rs.getString("AddDepartOffre"));
             p.setNbreOffre(rs.getInt("NbreOffre"));
-
+p.setDescription(rs.getString("description"));
             TrajetOffres.add(p);
 
         }

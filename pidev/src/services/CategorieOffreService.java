@@ -36,12 +36,12 @@ String req = "INSERT INTO categorieoffre( poidsOffre, TypeOffre, nbreColisOffre)
 
     @Override
     public void modifier(CategorieOffre t) throws SQLException {
-String req = "UPDATE CategorieOffre SET IdCatOffre = ? ,poidsOffre = ? ,nbreColisOffre = ? ";
+String req = "UPDATE CategorieOffre SET IdCatOffre = ? ,poidsOffre = ? ,nbreColisOffre = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setInt(1, t.getIdCatOffre());
         ps.setFloat(2, t.getPoidsOffre());
         ps.setInt(3, t.getNbreColisOffre());
-      
+
 
 
         ps.executeUpdate();       }
@@ -49,7 +49,7 @@ String req = "UPDATE CategorieOffre SET IdCatOffre = ? ,poidsOffre = ? ,nbreColi
     @Override
     public void supprimer(CategorieOffre t) throws SQLException {
 
-                String querry = "DELETE FROM CategorieOffre WHERE IdCatOffre = '"+t.getIdCatOffre()+"'";
+                String querry = "DELETE FROM CategorieOffre WHERE TypeOffre = '"+t.getTypeOffre()+"'";
                 Statement stm = cnx.createStatement();
 
                 stm.executeUpdate(querry);

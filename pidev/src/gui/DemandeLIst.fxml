@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="itemC" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="680.0" spacing="15.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DemandeLIstController">
+   <effect>
+      <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+   </effect>
+   <children>
+      <Label fx:id="IdDemande" prefHeight="18.0" prefWidth="99.0" text="IdDemande" textFill="#e7e5e5">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="Description" prefHeight="18.0" prefWidth="95.0" text="Description" textFill="#e7e5e5" />
+      <Label fx:id="IdColis" prefHeight="18.0" prefWidth="78.0" text="IdColis" textFill="#e7e5e5" />
+      <Label fx:id="IdPersonne" prefHeight="23.0" prefWidth="115.0" text="IdPersonne" textFill="#e7e5e5" />
+      <Label fx:id="Prix" prefHeight="18.0" prefWidth="47.0" text="Prix" textFill="#e7e5e5" />
+      <Label layoutX="423.0" layoutY="28.0" prefHeight="18.0" prefWidth="47.0" textFill="#e7e5e5" />
+      <Label layoutX="423.0" layoutY="28.0" prefHeight="18.0" prefWidth="19.0" textFill="#e7e5e5" />
+   </children>
+</HBox>

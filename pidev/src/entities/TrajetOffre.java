@@ -34,12 +34,20 @@ public class TrajetOffre {
         this.NbreEscaleOffre = NbreEscaleOffre;
         this.AddArriveOffre = AddArriveOffre;
         this.AddDepartOffre = AddDepartOffre;
-        this.description = AddArriveOffre.concat(AddDepartOffre);
+        this.description = AddDepartOffre.concat(AddArriveOffre);
         this.IdTrajetOffre = IdTrajetOffre;
         this.nbreOffre = idoffres.size();
         
     }
     
+
+    public TrajetOffre(int LimiteKmOffre, int NbreEscaleOffre, String AddArriveOffre, String AddDepartOffre) {
+this.LimiteKmOffre = LimiteKmOffre;
+        this.NbreEscaleOffre = NbreEscaleOffre;
+        this.AddArriveOffre = AddArriveOffre;
+        this.AddDepartOffre = AddDepartOffre;
+        this.description = AddArriveOffre.concat(AddDepartOffre);
+        this.nbreOffre = idoffres.size();    }
  public void setDescription(String description) {
         this.description = description;
     }
@@ -113,6 +121,29 @@ public class TrajetOffre {
     public String toString() {
         return "TrajetOffre{" + "IdTrajetOffre=" + IdTrajetOffre + ", LimiteKmOffre=" + LimiteKmOffre + ", NbreEscaleOffre=" + NbreEscaleOffre + ", idoffres=" + idoffres + ", nbreOffre=" + nbreOffre + ", AddArriveOffre=" + AddArriveOffre + ", AddDepartOffre=" + AddDepartOffre + '}';
     }
+
+   
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TrajetOffre other = (TrajetOffre) obj;
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        return true;
+    }
+
+
+   
 
   
 

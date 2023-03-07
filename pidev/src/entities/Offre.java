@@ -19,7 +19,7 @@ import services.TrajetService;
  */
 public class Offre {
 
-    private  int IdOffre, IdCatColis;
+    private  int IdOffre, IdCatColis,IdUser;
          private  int   nbreDemande;
     private String IdTrajetOffre;   
     private String DescriptionOffre, MaxRetard,Etat,CatOffreId;
@@ -33,10 +33,12 @@ public class Offre {
 
     public Offre() {
     }
-    public Offre(int IdOffre,int IdCatColis, String CatOffreId, String DescriptionOffre, String MaxRetard, float prixOffre, String DateSortieOffre,long IdTrajetOffre,int LimiteKmOffre, int NbreEscaleOffre, String AddArriveOffre, String AddDepartOffre) throws SQLException, ParseException  {
+    
+    public Offre(int IdOffre,int IdCatColis,int IdUser, String CatOffreId, String DescriptionOffre, String MaxRetard, float prixOffre, String DateSortieOffre,long IdTrajetOffre,int LimiteKmOffre, int NbreEscaleOffre, String AddArriveOffre, String AddDepartOffre) throws SQLException, ParseException  {
         this.IdOffre=IdOffre ;
         this.IdCatColis = IdCatColis;
         this.CatOffreId = CatOffreId;
+        this.IdUser=IdUser;
         this.DescriptionOffre = DescriptionOffre;
         this.MaxRetard = MaxRetard;
         this.prixOffre = prixOffre;
@@ -47,8 +49,9 @@ public class Offre {
         this.IdTrajetOffre=IdTrajetOffres.getDescription();
        
     }
-    public Offre(int IdOffre,int IdCatColis, String CatOffreId, String DescriptionOffre, String MaxRetard, float prixOffre, String DateSortieOffre,String IdTrajetOffre) throws SQLException, ParseException  {
-        this.IdOffre=IdOffre;
+    public Offre(int IdOffre,int IdUser,int IdCatColis, String CatOffreId, String DescriptionOffre, String MaxRetard, float prixOffre, String DateSortieOffre,String IdTrajetOffre) throws SQLException, ParseException  {
+                this.IdOffre = IdOffre;
+this.IdUser=IdUser;
         this.IdCatColis = IdCatColis;
         this.CatOffreId = CatOffreId;
         this.DescriptionOffre = DescriptionOffre;
@@ -58,6 +61,28 @@ public class Offre {
         this.Etat= this.etat_m(DateSortieOffre,this.DateOffre);
         this.IdTrajetOffre=IdTrajetOffre;
     }
+    public Offre(int IdCatColis,int IdUser, String CatOffreId, String DescriptionOffre, String MaxRetard, float prixOffre, String DateSortieOffre,String IdTrajetOffre) throws SQLException, ParseException  {
+        this.IdCatColis = IdCatColis;
+        this.CatOffreId = CatOffreId;
+        this.IdUser=IdUser;
+        this.DescriptionOffre = DescriptionOffre;
+        this.MaxRetard = MaxRetard;
+        this.prixOffre = prixOffre;
+        this.DateSortieOffre = DateSortieOffre;
+        this.Etat= this.etat_m(DateSortieOffre,this.DateOffre);
+        this.IdTrajetOffre=IdTrajetOffre;
+    }
+
+    public void setIdUser(int IdUser) {
+        this.IdUser = IdUser;
+    }
+
+    public int getIdUser() {
+        return IdUser;
+    }
+
+   
+   
     
  public void setDateOffre(String DateOffre) {
         this.DateOffre = DateOffre;

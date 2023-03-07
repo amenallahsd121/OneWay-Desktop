@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageCategorieController">
+   <children>
+      <SplitPane dividerPositions="0.9950576606260296" layoutY="-4.0" prefHeight="476.0" prefWidth="609.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="474.0" prefWidth="578.0" style="-fx-background-color: #9400D3;">
+               <children>
+                  <ScrollBar layoutX="1.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="14.0" style="-fx-border-color: #9400D3; -fx-background-color: #9400D3;" />
+                  <GridPane fx:id="grid" layoutX="111.0" layoutY="76.0" prefHeight="158.0" prefWidth="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox fx:id="box" prefHeight="169.0" prefWidth="183.0" style="-fx-background-color: #9400D3; -fx-background-radius: 30;">
+                           <effect>
+                              <DropShadow height="86.59" radius="46.182500000000005" width="100.14">
+                                 <color>
+                                    <Color red="0.6907894611358643" green="0.2763157784938812" blue="0.8289473652839661" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Pane prefHeight="169.0" prefWidth="206.0">
+                                 <children>
+                                    <Button fx:id="modifier" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #FFD700; -fx-background-radius: 50;">
+                                       <effect>
+                                          <Lighting diffuseConstant="1.52" specularConstant="0.97" specularExponent="24.6">
+                                             <bumpInput>
+                                                <Shadow radius="39.31" width="138.24">
+                                                   <color>
+                                                      <Color red="0.9605262875556946" green="0.9471856951713562" blue="0.9471856951713562" />
+                                                   </color>
+                                                </Shadow>
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                    </Button>
+                                    <Button fx:id="delete" layoutX="103.0" layoutY="117.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: red; -fx-background-radius: 50;" />
+                                    <Label fx:id="nomtv1" layoutX="115.0" layoutY="123.0" text="supprimer" textFill="#1a1818" />
+                                    <Label layoutX="36.0" layoutY="123.0" text="modifier" />
+                                    <Label fx:id="nombre" layoutX="129.0" layoutY="57.0" prefHeight="29.0" prefWidth="44.0" text="Label" />
+                                    <Label fx:id="type" layoutX="30.0" layoutY="57.0" prefHeight="29.0" prefWidth="36.0" text="Label" />
+                                    <Label fx:id="nom" layoutX="77.0" layoutY="14.0" prefHeight="40.0" prefWidth="52.0" text="Label" />
+                                    <Label layoutX="72.0" layoutY="63.0" text="KG" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="474.0" prefWidth="310.0" style="-fx-background-color: #9400D3; -fx-background-radius: 20;">
+               <children>
+                  <HBox fx:id="box" layoutX="-15.0" prefHeight="474.0" prefWidth="341.0" style="-fx-background-color: #FFD700; -fx-background-radius: 30;">
+                     <effect>
+                        <DropShadow height="0.0" radius="30.395" spread="0.38" width="123.58">
+                           <color>
+                              <Color red="0.37865495681762695" green="0.2514619827270508" blue="0.42105263471603394" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <children>
+                        <Pane prefHeight="474.0" prefWidth="342.0">
+                           <children>
+                              <TextField fx:id="TypeOffre" alignment="CENTER" layoutX="60.0" layoutY="147.0" prefHeight="29.0" prefWidth="207.0" promptText="type" style="-fx-border-color: #9400D3; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: #FFD700;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                            
+                              </TextField>
+                              <TextField fx:id="nbreColisOffre" alignment="CENTER" layoutX="60.0" layoutY="214.0" opacity="0.8" prefHeight="29.0" prefWidth="207.0" style="-fx-border-color: #9400D3; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: #FFD700;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <TextField fx:id="poidsOffre" alignment="CENTER" layoutX="60.0" layoutY="281.0" opacity="0.8" prefHeight="29.0" prefWidth="207.0" style="-fx-border-color: #9400D3; -fx-border-width: 2; -fx-border-radius: 15; -fx-background-color: #FFD700;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextField>
+                              <Button fx:id="AjouterCategorieOffre" layoutX="87.0" layoutY="367.0" mnemonicParsing="false" onAction="#AjouterCategorieOffre" prefHeight="29.0" prefWidth="153.0" style="-fx-background-color: #FFD700; -fx-background-radius: 25; -fx-border-color: #9400D3; -fx-border-width: 0;" text="Ajouter" textFill="#a345a2" textOverrun="CLIP">
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color red="0.40339910984039307" green="0.14729532599449158" blue="0.5131579041481018" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <DropShadow height="1.0" radius="63.5" width="255.0" />
+               </effect>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

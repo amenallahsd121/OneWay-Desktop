@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.util.Objects;
+
 /**
  *
  * @author utilisateur
@@ -15,6 +17,12 @@ public class CategorieOffre {
      private String TypeOffre;
 
     public CategorieOffre() {
+    }
+
+    public CategorieOffre(int nbreColisOffre, float poidsOffre, String TypeOffre) {
+        this.nbreColisOffre = nbreColisOffre;
+        this.poidsOffre = poidsOffre;
+        this.TypeOffre = TypeOffre;
     }
 
     public CategorieOffre(int IdCatOffre, int nbreColisOffre, float poidsOffre, String TypeOffre) {
@@ -56,6 +64,31 @@ public class CategorieOffre {
 
     public String getTypeOffre() {
         return TypeOffre;
+    }
+
+    @Override
+    public String toString() {
+        return "CategorieOffre{" + "IdCatOffre=" + IdCatOffre + ", nbreColisOffre=" + nbreColisOffre + ", poidsOffre=" + poidsOffre + ", TypeOffre=" + TypeOffre + '}';
+    }
+
+  
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CategorieOffre other = (CategorieOffre) obj;
+        if (!Objects.equals(this.TypeOffre, other.TypeOffre)) {
+            return false;
+        }
+        return true;
     }
 
    

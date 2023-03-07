@@ -25,9 +25,9 @@ public class Mainajouter extends Application {
     @Override
     public void start(Stage primaryStage) {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AjouterCategorie.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AffichageOffre.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root,600,400);
+            Scene scene = new Scene(root,1510,672);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Afficher");
             primaryStage.show();

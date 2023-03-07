@@ -29,7 +29,13 @@ public class Demande {
         this.IdOffre = IdOffre;
         this.IdPersonne = IdPersonne;
     }
-
+ public Demande( int IdOffre, int IdColis, int IdPersonne, String DescriptionDemande, double prix) {
+        this.IdOffre = IdOffre;
+        this.IdColis = IdColis;
+        this.IdPersonne = IdPersonne;
+        this.DescriptionDemande = DescriptionDemande;
+        this.prix = prix;
+    }
     public Demande(int IdDemande, int IdOffre, int IdColis, int IdPersonne, String DescriptionDemande, double prix) {
         this.IdDemande = IdDemande;
         this.IdOffre = IdOffre;

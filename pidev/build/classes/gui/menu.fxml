@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox onMouseClicked="#choose" prefHeight="114.0" prefWidth="153.0" style="-fx-background-color: #05071F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController">
+   <children>
+      <Label fx:id="offre" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#Offre" prefHeight="34.0" prefWidth="161.0" text="Offres" />
+      <Label fx:id="trajet" alignment="CENTER" onMouseClicked="#Trajet" prefHeight="38.0" prefWidth="156.0" text="Trajets" />
+      <Label fx:id="categorie" alignment="CENTER" onMouseClicked="#Categorie" prefHeight="29.0" prefWidth="154.0" text="Categorie" />
+   </children>
+</VBox>
