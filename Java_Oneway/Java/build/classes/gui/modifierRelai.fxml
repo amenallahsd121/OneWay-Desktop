@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModRelaiController">
+   <children>
+      <TextField fx:id="lastnameM" layoutX="99.0" layoutY="83.0" promptText="Lastname" styleClass="textfield" stylesheets="@interface.css" />
+      <TextField fx:id="emailM" layoutX="99.0" layoutY="137.0" promptText="Email" styleClass="textfield" stylesheets="@interface.css" />
+      <TextField fx:id="adresseM" layoutX="97.0" layoutY="193.0" prefHeight="26.0" prefWidth="179.0" promptText="Adresse" styleClass="textfield" stylesheets="@interface.css" />
+      <TextField fx:id="cityM" layoutX="97.0" layoutY="253.0" promptText="City" styleClass="textfield" stylesheets="@interface.css" />
+      <TextField fx:id="nameM" layoutX="99.0" layoutY="27.0" promptText="Name" styleClass="textfield" stylesheets="@interface.css" />
+      <Button fx:id="closebutton" layoutX="88.0" layoutY="368.0" mnemonicParsing="false" onAction="#savechanges" style="-fx-background-color: #087FE0;" text="Save" textFill="WHITE" />
+      <Button fx:id="closebutton" layoutX="193.0" layoutY="368.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Cancel" textFill="WHITE" />
+      <Label layoutX="108.0" layoutY="-12.0" prefHeight="51.0" prefWidth="222.0" text="Change Relai information" textFill="#373b69">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idM" layoutX="8.0" layoutY="366.0" prefHeight="26.0" prefWidth="39.0" />
+      <TextField fx:id="numM" layoutX="97.0" layoutY="316.0" promptText="Phone number" styleClass="textfield" stylesheets="@interface.css" />
+   </children>
+</AnchorPane>

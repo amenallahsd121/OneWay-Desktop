@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="681.0" prefWidth="1108.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherDemandeController">
+   <children>
+      <AnchorPane focusTraversable="true" layoutX="7.0" layoutY="3.0" minHeight="0.0" minWidth="0.0" prefHeight="681.0" prefWidth="1099.0" style="-fx-background-color: #02030A;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="447.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox prefHeight="681.0" prefWidth="752.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+               <effect>
+                  <DropShadow height="92.69" radius="53.567499999999995" spread="0.38" width="123.58">
+                     <color>
+                        <Color red="0.3890411853790283" green="0.3746345043182373" blue="0.3947368562221527" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Pane prefHeight="681.0" prefWidth="756.0">
+                     <children>
+                        <Label fx:id="IdOffre" alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="7.0" prefHeight="100.0" prefWidth="112.0" style="-fx-font-size: 30;">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.2368421107530594" green="0.2225877195596695" blue="0.2225877195596695" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.8421052694320679" green="0.1247563362121582" blue="0.1247563362121582" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font name="Agency FB" size="12.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane layoutY="207.0" prefHeight="476.0" prefWidth="752.0" style="-fx-background-radius: #00; -fx-background-color: #02030A;" stylesheets="@style.css">
+                           <content>
+                              <VBox fx:id="pnItems" prefHeight="607.0" prefWidth="752.0" spacing="5.0" style="-fx-background-color: #02030A;">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <HBox alignment="CENTER_LEFT" layoutY="109.0" prefHeight="120.0" prefWidth="752.0" spacing="40.0" style="-fx-background-color: #02030A; -fx-background-radius: 20;">
+                           <children>
+                              <Label fx:id="Id" prefHeight="18.0" prefWidth="81.0" text="IdDemande" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="Description" prefHeight="18.0" prefWidth="82.0" text="Description" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="65.0" text="IdColis" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="75.0" text="IdPersonne" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="47.0" text="Prix" textFill="#e7e5e5" />
+                              <TextField prefHeight="27.0" prefWidth="145.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: white; -fx-border-radius: 30; -fx-background-radius: 30;" />
+                           </children>
+                        </HBox>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="7.0" prefHeight="100.0" prefWidth="433.0" style="-fx-font-size: 30;" text="Liste DE De Demande D'Offre : ">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.2368421107530594" green="0.2225877195596695" blue="0.2225877195596695" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.8421052694320679" green="0.1247563362121582" blue="0.1247563362121582" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font name="Agency FB" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

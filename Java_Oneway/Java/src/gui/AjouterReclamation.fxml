@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterReclamationController">
+   <children>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="14.0" prefHeight="46.0" prefWidth="308.0" text="Ajouter Reclamation" textAlignment="CENTER">
+         <font>
+            <Font name="Rockwell" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="230.0" layoutY="225.0" prefHeight="23.0" prefWidth="113.0" text="Sujet">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="219.0" layoutY="292.0" prefHeight="23.0" prefWidth="135.0" text="Texte Reclamation">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Texte_reclamation" layoutX="411.0" layoutY="291.0" prefHeight="185.0" prefWidth="499.0" />
+      <Button layoutX="691.0" layoutY="499.0" mnemonicParsing="false" onAction="#AjouterRedclamation" prefHeight="33.0" prefWidth="113.0" text="Ajouter" />
+      <Button layoutX="821.0" layoutY="499.0" mnemonicParsing="false" onAction="#listeREC" prefHeight="33.0" prefWidth="147.0" text="Liste des reclamations" />
+      <ChoiceBox fx:id="Sujet" layoutX="411.0" layoutY="224.0" prefHeight="25.0" prefWidth="268.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1157.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.OffreFrontController">
+   <children>
+      <TextField fx:id="filterTextField" layoutX="245.0" layoutY="43.0" onInputMethodTextChanged="#FilterList" prefHeight="27.0" prefWidth="554.0" promptText="recherche" style="-fx-background-color: white; -fx-border-color: #FEBD11; -fx-border-radius: 2em;" />
+      <Pagination fx:id="pignation" layoutX="197.0" layoutY="130.0" pageCount="50" prefHeight="629.0" prefWidth="763.0" style="-fx-background-color: white;">
+         <padding>
+            <Insets left="0.0" />
+         </padding>
+      </Pagination>
+      <ImageView fx:id="Demandes" fitHeight="46.0" fitWidth="49.0" layoutX="1033.0" layoutY="33.0" onMouseClicked="#demande" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-demande-32.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="offre" fitHeight="38.0" fitWidth="38.0" layoutX="849.0" layoutY="37.0" onMouseClicked="#ajouter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-plus-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="MesOffres" fitHeight="38.0" fitWidth="46.0" layoutX="941.0" layoutY="37.0" onMouseClicked="#stat" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-vendre-24.png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>

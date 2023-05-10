@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Google Maps API Example</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+    
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+            java.log("Map initialized.");
+        }
+    </script>
+</head>
+<body>
+    <div id="map" style="height: 100%; width: 100%;"></div>
+</body>
+</html>
