@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="itemC" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="1050.0" spacing="15.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TrajetOffreController">
+   <children>
+      <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8_GPS_Antenna_64px_1.png" />
+         </image>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </ImageView>
+      <Label fx:id="description" prefHeight="18.0" prefWidth="152.0" text="description" textFill="#e7e5e5" />
+      <Label fx:id="AddresseDeDepart" prefHeight="18.0" prefWidth="160.0" text="Addresse De Depart" textFill="#e7e5e5" />
+      <Label fx:id="AddresseDarrivee" prefHeight="18.0" prefWidth="153.0" text="Addresse D'arrivee" textFill="#e7e5e5" />
+      <Label fx:id="NombreEscale" prefHeight="18.0" prefWidth="128.0" text="NombreEscale" textFill="#e7e5e5" />
+      <Label fx:id="LimiteKm" prefHeight="18.0" prefWidth="86.0" text="LimiteKm" textFill="#e7e5e5" />
+      <Label fx:id="nombreOffre" prefHeight="17.0" prefWidth="99.0" text="nombre D'Offre" textFill="#e7e5e5" />
+      <ImageView fx:id="Set" fitHeight="23.0" fitWidth="24.0" onMouseClicked="#TrajetEdit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-crayon-24.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Delete" fitHeight="22.0" fitWidth="39.0" onMouseClicked="#TrajetSupp" onTouchPressed="#TrajetSupp" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-poubelle-50%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+   </effect>
+</HBox>

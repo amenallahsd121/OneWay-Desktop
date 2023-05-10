@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="1346.0" style="-fx-background-color: white; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DemandeFrontCreateController">
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+   <children>
+      <VBox layoutX="488.0" layoutY="56.0" prefHeight="569.0" prefWidth="440.0" style="-fx-background-color: #FEBD11; -fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="453.0" AnchorPane.rightAnchor="453.0" AnchorPane.topAnchor="56.0">
+         <children>
+            <Pane prefHeight="570.0" prefWidth="440.0">
+               <children>
+                  <Label fx:id="OffreId" alignment="CENTER" layoutX="145.0" layoutY="58.0" prefHeight="79.0" prefWidth="168.0">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.37404000759124756" green="0.2856000065803528" blue="0.8399999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <TextArea fx:id="description" layoutX="122.0" layoutY="242.0" prefHeight="142.0" prefWidth="214.0" style="-fx-background-color: #FEBD11; -fx-background-radius: 30; -fx-border-radius: 30;" />
+                  <Label layoutX="82.0" layoutY="391.0" prefHeight="17.0" prefWidth="37.0" text="Prix" />
+                  <Label layoutX="81.0" layoutY="216.0" text="Description" />
+                  <Label layoutX="79.0" layoutY="153.0" text="Votre Colis" />
+                  <Button fx:id="ajoutColis" layoutX="74.0" layoutY="458.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" style="-fx-background-color: #FEBD11; -fx-background-radius: 30; -fx-border-color: black; -fx-border-radius: 30;" text="Nouveau Colis" />
+                  <Button fx:id="ajoutdemande" layoutX="324.0" layoutY="503.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #FEBD11; -fx-border-color: black; -fx-border-radius: 30;" text="Ajouter" />
+                  <TextField fx:id="prix" layoutX="123.0" layoutY="408.0" prefHeight="25.0" prefWidth="207.0" />
+                  <TextField fx:id="colis" layoutX="121.0" layoutY="182.0" prefHeight="25.0" prefWidth="214.0" />
+                  <Button fx:id="ajoutdemande1" layoutX="324.0" layoutY="20.0" mnemonicParsing="false" onAction="#retour" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #FEBD11; -fx-border-color: black; -fx-border-radius: 30;" text="Retour" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+   </children>
+</AnchorPane>

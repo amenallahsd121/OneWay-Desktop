@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane id="AnchorPane" prefHeight="167.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategorieOffreController">
+   <children>
+      <HBox fx:id="box" layoutY="1.0" prefHeight="165.0" prefWidth="229.0" style="-fx-background-color: #02030A; -fx-background-radius: 30;">
+         <effect>
+            <DropShadow height="93.37" radius="47.8775" width="100.14">
+               <color>
+                  <Color red="0.5615984201431274" green="0.5500730872154236" blue="0.5657894611358643" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Pane fx:id="PANE" prefHeight="221.0" prefWidth="354.0">
+               <children>
+                  <Label fx:id="nombre" layoutX="148.0" layoutY="79.0" prefHeight="29.0" prefWidth="44.0" style="-fx-font-size: 15;" text="Label" textFill="#fff8f8" />
+                  <Label fx:id="type" alignment="CENTER" layoutX="79.0" layoutY="14.0" prefHeight="61.0" prefWidth="77.0" style="-fx-font-size: 25;" text="Label" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="0.7535545023696684" endY="1.0" startX="0.5450236966824645" startY="0.4597156398104265">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.5800438523292542" green="0.593073844909668" blue="0.6052631735801697" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill></Label>
+                  <Label fx:id="nom" layoutX="45.0" layoutY="73.0" prefHeight="40.0" prefWidth="52.0" style="-fx-font-size: 15;" text="Label" textAlignment="CENTER" textFill="#fafbfc" />
+                  <Label layoutX="89.0" layoutY="85.0" text="KG" textFill="#fcfafa" />
+                  <Button fx:id="modifier" layoutX="26.0" layoutY="120.0" mnemonicParsing="false" onAction="#CategorieEdit" prefHeight="29.0" prefWidth="90.0" style="-fx-background-color: #02030A; -fx-background-radius: 25; -fx-border-color: white; -fx-border-width: 0;" text="modifier" textFill="#f2f2f2" textOverrun="CLIP">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.3360867500305176" green="0.32309940457344055" blue="0.34210526943206787" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="delete" layoutX="125.0" layoutY="120.0" mnemonicParsing="false" onAction="#supprimerCategorie" prefHeight="29.0" prefWidth="90.0" style="-fx-background-color: #02030A; -fx-background-radius: 25; -fx-border-color: white; -fx-border-width: 0;" text="supprimer" textFill="#fffbff" textOverrun="CLIP">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.5263158082962036" green="0.516569197177887" blue="0.516569197177887" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

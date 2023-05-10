@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichageOffreController">
+   <children>
+      <SplitPane fx:id="split" dividerPositions="0.9973614775725593" layoutX="-4.0" layoutY="-2.0" prefHeight="770.0" prefWidth="1139.0" style="-fx-background-color: black;">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="768.0" prefWidth="1087.0" style="-fx-background-color: black;">
+               <children>
+                  <Pane fx:id="pnlOverview" layoutX="-7.0" prefHeight="770.0" prefWidth="1120.0" style="-fx-border-color: black;">
+                     <children>
+                        <TextField layoutX="412.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                        <ScrollPane layoutX="-27.0" layoutY="245.0" prefHeight="530.0" prefWidth="1174.0">
+                           <content>
+                              <VBox fx:id="pnItems" prefHeight="531.0" prefWidth="1177.0" spacing="5.0" style="-fx-background-color: #02030A;">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="573.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/icons8_Search_52px.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER_LEFT" layoutX="4.0" layoutY="183.0" prefHeight="42.0" prefWidth="1112.0" spacing="40.0" style="-fx-background-color: #02030A;">
+                           <children>
+                              <Label fx:id="Id" prefHeight="18.0" prefWidth="19.0" text="Id" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="Description" prefHeight="18.0" prefWidth="77.0" text="Description" textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="65.0" text="Categorie " textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="45.0" text="Trajet " textFill="#e7e5e5">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="87.0" text="Categorie Colis" textFill="#e7e5e5" />
+                              <Label prefHeight="18.0" prefWidth="34.0" text="Date " textFill="#e7e5e5" />
+                              <Label prefHeight="17.0" prefWidth="68.0" text="Date Sortie " textFill="#e7e5e5" />
+                              <Label layoutX="802.0" layoutY="23.0" prefHeight="17.0" prefWidth="33.0" text="Prix " textFill="#e7e5e5" />
+                              <Label layoutX="906.0" layoutY="23.0" prefHeight="17.0" prefWidth="101.0" text="Nbre demande" textFill="#e7e5e5" />
+                              <Label layoutX="931.0" layoutY="23.0" prefHeight="17.0" prefWidth="61.0" text=" demandes" textFill="#e7e5e5" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="panepane" prefHeight="681.0" prefWidth="793.0" style="-fx-background-color: black;">
+               <children>
+                  <GridPane fx:id="gridp" layoutY="5.0" onMouseExited="#close" prefHeight="681.0" prefWidth="795.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-22.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
